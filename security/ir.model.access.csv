@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_school_management_school_management,school_management.school_management,model_school_management_school_management,base.group_user,1,1,1,1
+school_management_parent,access_parent,model_school_management_parent,base.group_user,1,1,1,1
+school_management_teacher,access_teacher,model_school_management_teacher,base.group_user,1,1,1,1
+school_management_student,access_student,model_school_management_student,base.group_user,1,1,1,1
