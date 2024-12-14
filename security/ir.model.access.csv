@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 school_management_parent,access_parent,model_school_management_parent,base.group_user,1,1,1,1
 school_management_teacher,access_teacher,model_school_management_teacher,base.group_user,1,1,1,1
 school_management_student,access_student,model_school_management_student,base.group_user,1,1,1,1
+school_management_course,access_course,model_school_management_course,base.group_user,1,1,1,1
+school_management_result,access_result,model_school_management_result,base.group_user,1,1,1,1
