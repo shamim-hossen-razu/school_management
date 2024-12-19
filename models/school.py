@@ -36,4 +36,25 @@ class School(models.Model):
             vals['student_ids'] = new_student_list
         return super(School, self).create(vals)
 
+    def write(self, vals):
+        # Check if school_code has changed or exists in vals
+        if 'school_code' in vals:
+            school_code = vals['school_code']
+        else:
+            school_code = self.school_code  # Use the current value if not in vals
+
+        # Update the teacher names with the new school_code
+        teacher_ids_update = [
+            (1, teacher.id, {'name': f"{school_code} - {teacher.name}"})
+            for teacher in self.teacher_ids
+        ]
+        vals['teacher_ids'] = teacher_ids_update
+
+        # Update the student names with the new school_code
+        for student in self.student_ids:
+            student.write({'name': f"{school_code} - {student.name}"})
+
+        # Call the superclass write method to apply changes to the School record
+        return super(School, self).write(vals)
+
 
