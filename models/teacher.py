@@ -56,6 +56,7 @@ class Teacher(models.Model):
                 'parent_id': []  # No restriction if no subject is selected
             }
         }
+
     def _compute_display_name(self):
         for record in self:
             record.display_name = f"{record.name} ({record.subject})"
