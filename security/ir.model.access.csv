@@ -4,3 +4,4 @@ school_management_teacher,access_teacher,model_school_management_teacher,base.gr
 school_management_student,access_student,model_school_management_student,base.group_user,1,1,1,1
 school_management_course,access_course,model_school_management_course,base.group_user,1,1,1,1
 school_management_result,access_result,model_school_management_result,base.group_user,1,1,1,1
+school_management_school,access_school,model_school_management_school,base.group_user,1,1,1,1

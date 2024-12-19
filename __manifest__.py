@@ -30,5 +30,10 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'assets': {
+            'web.assets_frontend': [
+                'school_management/static/src/portal_component/**/*',
+            ],
+        }
 }
 

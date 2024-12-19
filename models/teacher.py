@@ -9,15 +9,23 @@ class Teacher(models.Model):
     _parent_name = 'parent_id'
     _parent_store = True
 
+    school_id = fields.Many2one('school_management.school', string='School', ondelete='cascade')
     subject = fields.Selection([('Bangla', 'Bangla'), ('English', 'English'), ('Math', 'Math'), ('Science', 'Science'),
                                 ('Social Science', 'Social Science'), ('Religion', 'Religion')])
     joining_date = fields.Date()
-    parent_id = fields.Many2one('school_management.teacher', string='Reporting Manager', index=True, ondelete='cascade',
-                                domain="[('subject', '=', subject)]")
+    parent_id = fields.Many2one('school_management.teacher', string='Reporting Manager', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
     path_name = fields.Char(compute='_compute_path_name', store=True)
-    job_age = fields.Float(compute='_compute_job_age', store=True)
+    job_age = fields.Float(string="Job Duration", compute='_compute_job_age', store=True, precompute=True)
     subordinate_teacher_ids = fields.One2many('school_management.teacher', 'parent_id', string='Subordinate Teachers')
+
+    @api.onchange('parent_id')
+    def _onchange_parent_id(self):
+        if self.parent_id:
+            self.subject = self.parent_id.subject
+        return {
+            'warning': {'title': "Warning", 'message': "What is this?", 'type': 'notification'},
+        }
 
     def _compute_job_age(self):
         for record in self:
@@ -36,9 +44,18 @@ class Teacher(models.Model):
     @api.onchange('subject')
     def _onchange_subject(self):
         if self.subject:
-            return {'domain': {'parent_id': [('subject', '=', self.subject)]}}
-        return {'domain': {'parent_id': []}}
-
+            # Define the domain based on the subject field
+            return {
+                'domain': {
+                    'parent_id': [('subject', '=', self.subject)]
+                    # Restrict parent_id to teachers with the same subject
+                }
+            }
+        return {
+            'domain': {
+                'parent_id': []  # No restriction if no subject is selected
+            }
+        }
     def _compute_display_name(self):
         for record in self:
             record.display_name = f"{record.name} ({record.subject})"

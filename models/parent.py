@@ -9,3 +9,4 @@ class Parent(models.Model):
     occupation = fields.Selection([('Service', 'Service'), ('Business', 'Business'), ('Housewife', 'Housewife'),
                                    ('Other', 'Other')], string='Date of Birth', default_export_compatible=True)
     annual_income = fields.Float()
+    child_ids = fields.One2many('school_management.student', 'parent_id', string='Children')
