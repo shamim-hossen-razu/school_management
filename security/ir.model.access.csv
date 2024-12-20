@@ -5,3 +5,5 @@ school_management_student,access_student,model_school_management_student,base.gr
 school_management_course,access_course,model_school_management_course,base.group_user,1,1,1,1
 school_management_result,access_result,model_school_management_result,base.group_user,1,1,1,1
 school_management_school,access_school,model_school_management_school,base.group_user,1,1,1,1
+school_management_playground,access_playground,model_school_management_playground,base.group_user,1,1,1,1
+school_management_swimming_pool,access_swimming_pool,model_school_management_swimming_pool,base.group_user,1,1,1,1
