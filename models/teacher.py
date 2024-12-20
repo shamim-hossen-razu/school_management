@@ -11,7 +11,7 @@ class Teacher(models.Model):
 
     school_id = fields.Many2one('school_management.school', string='School', ondelete='cascade')
     subject = fields.Selection([('Bangla', 'Bangla'), ('English', 'English'), ('Math', 'Math'), ('Science', 'Science'),
-                                ('Social Science', 'Social Science'), ('Religion', 'Religion')])
+                                ('Social Science', 'Social Science'), ('Religion', 'Religion')], required=True)
     joining_date = fields.Date(default=fields.Date.today())
     parent_id = fields.Many2one('school_management.teacher', string='Reporting Manager', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
