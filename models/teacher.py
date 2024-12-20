@@ -12,7 +12,7 @@ class Teacher(models.Model):
     school_id = fields.Many2one('school_management.school', string='School', ondelete='cascade')
     subject = fields.Selection([('Bangla', 'Bangla'), ('English', 'English'), ('Math', 'Math'), ('Science', 'Science'),
                                 ('Social Science', 'Social Science'), ('Religion', 'Religion')])
-    joining_date = fields.Date()
+    joining_date = fields.Date(default=fields.Date.today())
     parent_id = fields.Many2one('school_management.teacher', string='Reporting Manager', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
     path_name = fields.Char(compute='_compute_path_name', store=True)
@@ -71,5 +71,23 @@ class Teacher(models.Model):
             res[0]['display_name'] = res[0]['display_name'].upper()
         return res
 
+    def create(self, vals):
+        '''
+            Override the create method to change the display_name to uppercase
+            Usually triggered when the user creates a new record
+        '''
+        if 'display_name' in vals:
+            vals['display_name'] = vals['display_name'].upper()
+        return super().create(vals)
+
+    def default_get(self, fields):
+        '''
+            Override the default_get method to change the display_name to uppercase
+            Usually triggered when the user creates a new record
+        '''
+        res = super().default_get(fields)
+        if 'display_name' in res:
+            res['display_name'] = res['display_name'].upper()
+        return res
 
 
