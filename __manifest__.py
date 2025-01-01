@@ -23,17 +23,19 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'data/school_management.student.csv',
+        'data/student_data.xml',
+        'data/school_management.parent.csv',
+        'views/student.xml',
+        'views/menus.xml',
+        # 'views/templates.xml',
     ],
     # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
+    # 'demo': [
+    #     'demo/student_data.xml',
+    # ],
+    'web.assets_backend': [
+        'school_management/static/src/js/custom_kanban_renderer.js',
+        'school_management/static/src/js/custom_kanban_view.js',
     ],
-    'assets': {
-            'web.assets_frontend': [
-                'school_management/static/src/portal_component/**/*',
-            ],
-        }
 }
-

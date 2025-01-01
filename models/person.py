@@ -7,7 +7,7 @@ class BasePerson(models.AbstractModel):
     _description = 'Base Person'
 
     name = fields.Char()
-    age = fields.Float(compute='_compute_age', store=True, precompute=True, inverse='_inverse_age')
+    age = fields.Float(compute='_compute_age', store=True, precompute=False, inverse='_inverse_age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
     date_of_birth = fields.Date(string='Date of Birth', default_export_compatible=True)
 

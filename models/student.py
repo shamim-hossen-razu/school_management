@@ -15,7 +15,7 @@ class Student(models.Model):
     roll_number = fields.Char(copy=False)
     standard = fields.Selection([('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'),
                                  ('8', '8'), ('9', '9'), ('10', '10')], copy=False)
-    section = fields.Selection([('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')])
+    section = fields.Selection([('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D'), ('E', 'E'), ('F', 'F'),])
     version = fields.Selection([('Bangla', 'Bangla'), ('English', 'English')])
     admission_date = fields.Date(string='Admission Date')
     group = fields.Selection([('Science', 'Science'), ('Commerce', 'Commerce'), ('Arts', 'Arts')])
@@ -45,5 +45,32 @@ class Student(models.Model):
 
             if record.school_id:
                 raise UserError('Cannot delete a student with school.')
+
+    @api.model
+    def _assign_group(self, *args, **kwargs):
+        section_mapping = {
+            'A': ('Science', 'English'),
+            'B': ('Commerce', 'English'),
+            'C': ('Arts', 'English'),
+            'D': ('Science', 'Bangla'),
+            'E': ('Commerce', 'Bangla'),
+            'F': ('Arts', 'Bangla')
+        }
+
+        for student in self:
+            if student.standard in ['9', '10']:
+                if student.section in section_mapping:
+                    student.group, student.version = section_mapping[student.section]
+
+    def action_on_click(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Student',
+            'res_model': 'school_management.student',
+            'view_mode': 'form',
+            'res_id': self.id,
+            'target': 'new',
+        }
+
 
 

@@ -1,22 +1,14 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import request
 
 
-# class SchoolManagement(http.Controller):
-#     @http.route('/school_management/school_management', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class SchoolManagement(http.Controller):
 
-#     @http.route('/school_management/school_management/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('school_management.listing', {
-#             'root': '/school_management/school_management',
-#             'objects': http.request.env['school_management.school_management'].search([]),
-#         })
-
-#     @http.route('/school_management/school_management/objects/<model("school_management.school_management"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('school_management.object', {
-#             'object': obj
-#         })
-
+    @http.route('/school_management/banner', type='json', auth='user')
+    def get_banner(self):
+        banner_html = """
+        <div class="o_kanban_view_banner" style="background-color: #f8d7da; color: #721c24; padding: 10px; border: 1px solid #f5c6cb; border-radius: 5px; text-align: center; width: 100%; box-sizing: border-box;">
+            <span style="font-weight: bold;">Important Notification:</span> School Management System Update
+        </div>
+        """
+        return {'html': banner_html}

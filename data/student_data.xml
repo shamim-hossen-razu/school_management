@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Student 1 -->
+        <record id="student_1" model="school_management.student">
+            <field name="name">Lucas Martin</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2005-05-10</field>
+            <field name="roll_number">1</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-05</field>
+        </record>
+
+        <!-- Student 2 -->
+        <record id="student_2" model="school_management.student">
+            <field name="name">Zoe Lee</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2005-06-05</field>
+            <field name="roll_number">2</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-06</field>
+        </record>
+
+        <!-- Student 3 -->
+        <record id="student_3" model="school_management.student">
+            <field name="name">Oliver Walker</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2005-07-10</field>
+            <field name="roll_number">3</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-07</field>
+        </record>
+
+        <!-- Student 4 -->
+        <record id="student_4" model="school_management.student">
+            <field name="name">Ava King</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2005-08-20</field>
+            <field name="roll_number">4</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-08</field>
+        </record>
+
+        <!-- Student 5 -->
+        <record id="student_5" model="school_management.student">
+            <field name="name">Elijah Scott</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2005-09-15</field>
+            <field name="roll_number">5</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-09</field>
+        </record>
+
+        <!-- Student 6 -->
+        <record id="student_6" model="school_management.student">
+            <field name="name">Mia Green</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2005-10-25</field>
+            <field name="roll_number">6</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-10</field>
+        </record>
+
+        <!-- Student 7 -->
+        <record id="student_7" model="school_management.student">
+            <field name="name">Henry Adams</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2005-11-18</field>
+            <field name="roll_number">7</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-11</field>
+        </record>
+
+        <!-- Student 8 -->
+        <record id="student_8" model="school_management.student">
+            <field name="name">Sophie Baker</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2005-12-30</field>
+            <field name="roll_number">8</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-12</field>
+        </record>
+
+        <!-- Student 9 -->
+        <record id="student_9" model="school_management.student">
+            <field name="name">Samuel Evans</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2006-01-05</field>
+            <field name="roll_number">9</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-13</field>
+        </record>
+
+        <!-- Student 10 -->
+        <record id="student_10" model="school_management.student">
+            <field name="name">Grace Hall</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2006-02-01</field>
+            <field name="roll_number">10</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-14</field>
+        </record>
+
+        <!-- Student 11 -->
+        <record id="student_11" model="school_management.student">
+            <field name="name">Jack Nelson</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2006-03-15</field>
+            <field name="roll_number">11</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-15</field>
+        </record>
+
+        <!-- Student 12 -->
+        <record id="student_12" model="school_management.student">
+            <field name="name">Amos Clark</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2006-04-01</field>
+            <field name="roll_number">12</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-16</field>
+        </record>
+
+        <!-- Student 13 -->
+        <record id="student_13" model="school_management.student">
+            <field name="name">Chloe Young</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2006-05-15</field>
+            <field name="roll_number">13</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-17</field>
+        </record>
+
+        <!-- Student 14 -->
+        <record id="student_14" model="school_management.student">
+            <field name="name">Ryan Moore</field>
+            <field name="gender">male</field>
+            <field name="date_of_birth">2006-06-05</field>
+            <field name="roll_number">14</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-18</field>
+        </record>
+
+        <!-- Student 15 -->
+        <record id="student_15" model="school_management.student">
+            <field name="name">Alice Carter</field>
+            <field name="gender">female</field>
+            <field name="date_of_birth">2006-07-12</field>
+            <field name="roll_number">15</field>
+            <field name="standard">1</field>
+            <field name="section">A</field>
+            <field name="version">English</field>
+            <field name="admission_date">2024-04-19</field>
+        </record>
+
+        <function model="school_management.student" name="_assign_group">
+            <value eval="[ref('student_540')]"/>
+        </function>
+
+    </data>
+
+</odoo>
+

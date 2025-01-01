@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="id1" model="school_management.student">
+        <field name="name">Shamim Hossen Razu</field>
+        <field name="gender">male</field>
+        <field name="date_of_birth">1996-04-04</field>
+        <field name="roll_number">1</field>
+        <field name="standard">1</field>
+        <field name="section">A</field>
+        <field name="version">Bangla</field>
+        <field name="admission_date">2024-04-04</field>
+    </record>
+
+</odoo>
