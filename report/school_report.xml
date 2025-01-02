@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="school_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="school">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-set="my_var" t-value="school.name"/>
+                        <h1 t-esc="school.name"/>
+                        <span t-esc="school.email"/>
+                        <span t-out="my_var"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <record id="school_management_school_report_action" model="ir.actions.report">
+        <field name="name">School Report</field>
+        <field name="model">school_management.school</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">school_management.school_report_template</field>
+        <field name="report_file">school_management.school_report_template</field>
+        <field name="print_report_name">"School Report"</field>
+        <field name="binding_model_id" ref="school_management.model_school_management_school"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

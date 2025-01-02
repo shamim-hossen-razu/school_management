@@ -24,6 +24,7 @@ class Student(models.Model):
     parent_id = fields.Many2one('school_management.parent', string='Parent')
     active = fields.Boolean(default=True)
     parent_name = fields.Char(related='parent_id.name', string='Parent Name', store=True)
+    result_ids = fields.One2many('school_management.result', 'student_id', string='Results')
 
     @api.onchange('weight_in_kg')
     def _onchange_weight_in_kg(self):

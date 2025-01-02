@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="basic_student_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+<!--                        <t t-set="my_var" t-value="doc.name"/>-->
+                        <t t-call="school_management.looping_template"/>
+<!--&lt;!&ndash;                        <a t-att-href="doc.school_id.website">School Website</a>&ndash;&gt;-->
+<!--                        <a t-att-href="doc.school_id.website" t-esc="doc.school_id.website">School Website</a>-->
+<!--&lt;!&ndash;                        t-field , t-esc, t-out, t-set, t-value&ndash;&gt;-->
+<!--                        <h1>A very Simple PDF Report</h1>-->
+<!--                        <span t-field="doc.name"/>-->
+<!--                        <t t-set="my_var" t-value="doc.name"/>-->
+<!--                        <table class="table table-condensed">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Name</th>-->
+<!--                                    <th>Age</th>-->
+<!--                                    <th>Standard</th>-->
+<!--                                    <th>Roll Number</th>-->
+<!--                                    <th>Section</th>-->
+<!--                                    <th>My Variable</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                <tr>-->
+<!--                                    <td><span t-esc="doc.name"/></td>-->
+<!--                                    <td><span t-esc="doc.age"/></td>-->
+<!--                                    <td><span t-esc="doc.standard"/></td>-->
+<!--                                    <td><span t-esc="doc.roll_number"/></td>-->
+<!--                                    <td><span t-esc="doc.section"/></td>-->
+<!--                                    <td><span t-out="my_var"/></td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                        conditional statements-->
+<!--                        <t t-if="doc.weight_in_kg &gt;= 50 and doc.weight_in_kg &lt; 60">-->
+<!--                            <h1>Student's weight in range 50-60</h1>-->
+<!--                        </t>-->
+<!--                        <t t-elif="doc.weight_in_kg &gt;= 60 and doc.weight_in_kg &lt; 70">-->
+<!--                            <h1>Student's weight in range 60-70</h1>-->
+<!--                        </t>-->
+<!--                        <t t-elif="doc.weight_in_kg &gt;= 70 and doc.weight_in_kg &lt; 80">-->
+<!--                            <h1>Student's weight in range 70-80</h1>-->
+<!--                        </t>-->
+<!--                        <t t-else="">-->
+<!--                            <h1>Student's weight out of range</h1>-->
+<!--                        </t>-->
+
+<!--&lt;!&ndash;                        # alternative way to write conditional statements&ndash;&gt;-->
+<!--                        <h1 t-if="doc.weight_in_kg &gt;= 50 and doc.weight_in_kg &lt; 60">Student's weight in range 50-60</h1>-->
+<!--                        <h1 t-elif="doc.weight_in_kg &gt;= 60 and doc.weight_in_kg &lt; 70">Student's weight in range 60-70</h1>-->
+<!--                        <h1 t-elif="doc.weight_in_kg &gt;= 70 and doc.weight_in_kg &lt; 80">Student's weight in range 70-80</h1>-->
+<!--                        <h1 t-else="">Student's weight out of range</h1>-->
+
+<!--                        looping statement-->
+<!--                        <h1>Result of <span t-esc="doc.name"/></h1>-->
+<!--                        <table class="table table-condensed">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Course</th>-->
+<!--                                    <th>Grade</th>-->
+<!--                                    <th>Marks</th>-->
+<!--                                    <th>Result Date</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                        </table>-->
+
+<!--                        <table class="table table-condensed">-->
+<!--                            <tbody>-->
+<!--                                <t t-foreach="doc.result_ids" t-as="result">-->
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="result.course_id.name"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="result.grade"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="result.marks"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <span t-esc="result.result_date"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                </t>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                        looping with predefined variable-->
+<!--                        <t t-foreach="[1, 2, 3, 4, 5]" t-as="i">-->
+<!--                            <h1>Index value: <span t-esc="i_index"/> variable value: <span t-esc="i"/> Is it </h1>-->
+<!--                            <h1>Is is the first Index? <span t-esc="i_first"/> </h1>-->
+<!--                            <h1>Is is the last Index? <span t-esc="i_last"/> </h1>-->
+<!--                            <p t-esc="i_value"/>-->
+<!--                            <p t-esc="i_parity"/>-->
+
+<!--                        </t>-->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="looping_template">
+        <t t-foreach="[1, 2, 3, 4, 5]" t-as="i">
+            <h1>Index value:
+                <span t-esc="i_index"/>
+                variable value:
+                <span t-esc="i"/>
+                Is it
+            </h1>
+            <h1>Is is the first Index?
+                <span t-esc="i_first"/>
+            </h1>
+            <h1>Is is the last Index?
+                <span t-esc="i_last"/>
+            </h1>
+            <p t-esc="i_value"/>
+            <p t-esc="i_parity"/>
+
+        </t>
+    </template>
+
+    <record id="school_management_student_report_action" model="ir.actions.report">
+        <field name="name">Student Report</field>
+        <field name="model">school_management.student</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">school_management.basic_student_report_template</field>
+        <field name="report_file">school_management.basic_student_report_template</field>
+        <field name="print_report_name">"Student Report"</field>
+        <field name="binding_model_id" ref="school_management.model_school_management_student"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

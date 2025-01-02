@@ -27,7 +27,12 @@
         'data/student_data.xml',
         'data/school_management.parent.csv',
         'views/student.xml',
+        'views/student_result.xml',
+        'views/course.xml',
+        'views/school.xml',
         'views/menus.xml',
+        'report/basic_report_template.xml',
+        'report/school_report.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

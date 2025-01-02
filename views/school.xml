@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="school_management_school_view_form" model="ir.ui.view">
+        <field name="name">school.management.school.view.form</field>
+        <field name="model">school_management.school</field>
+        <field name="arch" type="xml">
+            <form string="School" create="true" edit="true" duplicate="true" delete="true"
+                  disable_autofocus="true">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="contact"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="website"/>
+                            <field name="established_date"/>
+                            <field name="school_code"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Students">
+                            <field name="student_ids"/>
+                        </page>
+                        <page string="Teachers">
+                            <field name="teacher_ids"/>
+                        </page>
+                        <page string="Playground">
+                            <field name="playground_ids"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_management_school_view_tree" model="ir.ui.view">
+        <field name="name">school.management.school.view.tree</field>
+        <field name="model">school_management.school</field>
+        <field name="arch" type="xml">
+            <tree string="School">
+                <field name="name"/>
+                <field name="address"/>
+                <field name="contact"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_management_school_action" model="ir.actions.act_window">
+        <field name="name">School</field>
+        <field name="res_model">school_management.school</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

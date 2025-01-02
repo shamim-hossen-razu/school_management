@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="school_management_student_result_view_form" model="ir.ui.view">
+        <field name="name">school.management.student.result.view.form</field>
+        <field name="model">school_management.result</field>
+        <field name="arch" type="xml">
+            <form string="School Student Result" create="true" edit="true" duplicate="true" delete="true"
+                  disable_autofocus="true">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="grade"/>
+                            <field name="marks"/>
+                            <field name="result_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_management_student_result_view_tree" model="ir.ui.view">
+        <field name="name">school.management.student.result.view.tree</field>
+        <field name="model">school_management.result</field>
+        <field name="arch" type="xml">
+            <tree string="School Student Result">
+                <field name="student_id"/>
+                <field name="course_id"/>
+                <field name="grade"/>
+                <field name="marks"/>
+                <field name="result_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_management_student_result_action" model="ir.actions.act_window">
+        <field name="name">Student Result</field>
+        <field name="res_model">school_management.result</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

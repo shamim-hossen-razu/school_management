@@ -4,6 +4,13 @@
 
     <menuitem id="school_management_student_menu" name="Student" parent="school_management_menu"
               action="school_management_student_action" sequence="10"/>
+    <menuitem id="school_management_student_result_menu" name="Student Result" parent="school_management_menu"
+              action="school_management_student_result_action" sequence="20"/>
+    <menuitem id="school_management_course_menu" name="Course" parent="school_management_menu"
+                action="school_management_course_action" sequence="30"/>
+    <menuitem id="school_management_school_menu" name="School" parent="school_management_menu"
+                action="school_management_school_action" sequence="40"/>
+
 
 
 </odoo>
