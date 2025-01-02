@@ -15,6 +15,9 @@
         </t>
     </template>
 
+    <template id="some_id">
+
+    </template>
 
     <record id="school_management_school_report_action" model="ir.actions.report">
         <field name="name">School Report</field>
