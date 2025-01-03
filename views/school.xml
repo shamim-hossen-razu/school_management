@@ -18,6 +18,7 @@
                             <field name="website"/>
                             <field name="established_date"/>
                             <field name="school_code"/>
+                            <field name="color"/>
                         </group>
                     </group>
                     <notebook>

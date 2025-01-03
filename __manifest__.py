@@ -33,6 +33,7 @@
         'views/menus.xml',
         'report/basic_report_template.xml',
         'report/school_report.xml',
+        # 'report/inherited_templates.xml',
         # 'views/templates.xml',
     ],
     # only loaded in demonstration mode

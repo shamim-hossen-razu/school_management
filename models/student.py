@@ -25,6 +25,7 @@ class Student(models.Model):
     active = fields.Boolean(default=True)
     parent_name = fields.Char(related='parent_id.name', string='Parent Name', store=True)
     result_ids = fields.One2many('school_management.result', 'student_id', string='Results')
+    student_image = fields.Binary(string='Student Image')
 
     @api.onchange('weight_in_kg')
     def _onchange_weight_in_kg(self):

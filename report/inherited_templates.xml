@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="school_management.inherited_basic_student_report_template" inherit_id="basic_student_report_template">
+        <xpath expr="//t[@t-call='school_management.sub_template']" position="before">
+            <h1>This is a line from inherited template before sub-template call</h1>
+        </xpath>
+
+
+
+        <xpath expr="//div[contains(@class, 'page')]/table/thead/tr/th[6]" position="after">
+            <th>Weight</th>
+        </xpath>
+
+        <xpath expr="//div[contains(@class, 'page')]/table/tbody/tr/td[6]" position="after">
+            <td>
+                <span t-esc="doc.weight_in_kg"/>
+            </td>
+        </xpath>
+
+    </template>
+
+    <template id="school_management.inherited_sub_template" inherit_id="sub_template">
+                <xpath expr="//div[contains(@class, 'my_class')]" position="replace">
+                    <h1>My Custom Header</h1>
+                </xpath>
+
+                <xpath expr="//div[contains(@class, 'my_class')]" position="after">
+                    <h1>My Custom Header</h1>
+                </xpath>
+
+        <xpath expr="//div[hasclass('my_class')]" position="after">
+            <h1>My Custom Header</h1>
+        </xpath>
+    </template>
+</odoo>

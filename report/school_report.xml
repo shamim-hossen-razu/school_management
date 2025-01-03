@@ -1,26 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+    <template id="my_custom_layout">
+
+        <div class="header">
+            <div class="text-center" style="report_header_style; border-bottom: 1px solid black;">
+                <!--                <h1>Custom Header</h1>-->
+                <t t-if="not o" t-set="o" t-value="doc"/>
+                <t t-if="not company">
+                    <!-- Multicompany -->
+                    <t t-if="company_id">
+                        <t t-set="company" t-value="company_id"/>
+                    </t>
+                    <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                        <t t-set="company" t-value="o.company_id.sudo()"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                </t>
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img alt="logo" t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                             style="max-height:90px;"/>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span t-if="company.company_details" t-field="company.company_details"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="article o_report_layout_standard">
+            <div class="row">
+                <t t-raw="0"/>
+            </div>
+        </div>
+        <div class="footer o_standard_footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+<!--                <h1>Custom Footer</h1>-->
+<!--                <div class="col-4">-->
+<!--                    <span t-field="company.email"/>-->
+<!--                </div>-->
+<!--                <div class="col-4">-->
+<!--                    <span t-field="company.phone"/> <br/>-->
+<!--                    <span t-field="company.mobile"/>-->
+<!--                </div>-->
+<!--                <div class="col-4">-->
+<!--                    <span t-field="company.website"/> <br/>-->
+<!--                </div>-->
+                <ul class="list-inline mb4">
+                    <span t-field="company.report_footer"/>
+                </ul>
+
+
+            </div>
+        </div>
+    </template>
+
+
     <template id="school_report_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="school">
-                <t t-call="web.external_layout">
+                <t t-call="school_management.my_custom_layout">
                     <div class="page">
-                        <t t-set="my_var" t-value="school.name"/>
-                        <h1 t-esc="school.name"/>
-                        <span t-esc="school.email"/>
-                        <span t-out="my_var"/>
+                        <h1>School Name:
+                            <span t-esc="school.name"/>
+                        </h1>
+
                     </div>
                 </t>
+
+
             </t>
         </t>
     </template>
 
 
-
     <record id="school_management_school_report_action" model="ir.actions.report">
         <field name="name">School Report</field>
         <field name="model">school_management.school</field>
-        <field name="report_type">qweb-html</field>
+        <field name="report_type">qweb-pdf</field>
         <field name="report_name">school_management.school_report_template</field>
         <field name="report_file">school_management.school_report_template</field>
         <field name="print_report_name">"School Report"</field>

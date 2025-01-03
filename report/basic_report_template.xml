@@ -6,36 +6,45 @@
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div class="page">
-<!--                        <t t-set="my_var" t-value="doc.name"/>-->
-                        <t t-call="school_management.looping_template"/>
-<!--&lt;!&ndash;                        <a t-att-href="doc.school_id.website">School Website</a>&ndash;&gt;-->
-<!--                        <a t-att-href="doc.school_id.website" t-esc="doc.school_id.website">School Website</a>-->
-<!--&lt;!&ndash;                        t-field , t-esc, t-out, t-set, t-value&ndash;&gt;-->
-<!--                        <h1>A very Simple PDF Report</h1>-->
-<!--                        <span t-field="doc.name"/>-->
-<!--                        <t t-set="my_var" t-value="doc.name"/>-->
-<!--                        <table class="table table-condensed">-->
-<!--                            <thead>-->
-<!--                                <tr>-->
-<!--                                    <th>Name</th>-->
-<!--                                    <th>Age</th>-->
-<!--                                    <th>Standard</th>-->
-<!--                                    <th>Roll Number</th>-->
-<!--                                    <th>Section</th>-->
-<!--                                    <th>My Variable</th>-->
-<!--                                </tr>-->
-<!--                            </thead>-->
-<!--                            <tbody>-->
-<!--                                <tr>-->
-<!--                                    <td><span t-esc="doc.name"/></td>-->
-<!--                                    <td><span t-esc="doc.age"/></td>-->
-<!--                                    <td><span t-esc="doc.standard"/></td>-->
-<!--                                    <td><span t-esc="doc.roll_number"/></td>-->
-<!--                                    <td><span t-esc="doc.section"/></td>-->
-<!--                                    <td><span t-out="my_var"/></td>-->
-<!--                                </tr>-->
-<!--                            </tbody>-->
-<!--                        </table>-->
+                        <t t-set="school_name" t-value="doc.school_id.name"/>
+                        <t t-call="school_management.sub_template"/>
+                        <a t-att-href="doc.school_id.website" t-esc="doc.school_id.website">School Website</a>
+                        <h1>A very Simple PDF Report</h1>
+                        <span t-field="doc.name"/>
+                        <t t-set="my_var" t-value="doc.name"/>
+                        add dynamic image
+                        <img t-if="doc.student_image"
+                                         t-att-src="image_data_uri(doc.student_image)"
+                                         alt="Student Image"/>
+                        <img src="school_management/static/description/icon.png"
+                             alt="Student Image"/>
+
+                        <img src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2019/09/iStock-1150384596-2.jpg"
+                             height="100" width="100"
+                             alt="Student Image"/>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Standard</th>
+                                    <th>Roll Number</th>
+                                    <th>Section</th>
+                                    <th>My Variable</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span t-esc="doc.name"/></td>
+                                    <td><span t-esc="doc.age"/></td>
+                                    <td><span t-esc="doc.standard"/></td>
+                                    <td><span t-esc="doc.roll_number"/></td>
+                                    <td><span t-esc="doc.section"/></td>
+                                    <td><span t-out="my_var"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
 <!--                        conditional statements-->
 <!--                        <t t-if="doc.weight_in_kg &gt;= 50 and doc.weight_in_kg &lt; 60">-->
 <!--                            <h1>Student's weight in range 50-60</h1>-->
@@ -105,25 +114,32 @@
         </t>
     </template>
 
-    <template id="looping_template">
-        <t t-foreach="[1, 2, 3, 4, 5]" t-as="i">
-            <h1>Index value:
-                <span t-esc="i_index"/>
-                variable value:
-                <span t-esc="i"/>
-                Is it
-            </h1>
-            <h1>Is is the first Index?
-                <span t-esc="i_first"/>
-            </h1>
-            <h1>Is is the last Index?
-                <span t-esc="i_last"/>
-            </h1>
-            <p t-esc="i_value"/>
-            <p t-esc="i_parity"/>
+    <template id="sub_template">
 
-        </t>
+        <h1>Student Name: <span t-esc="doc.name"/></h1>
+        <h2>School Name: <span t-esc="school_name"/></h2>
+<!--        <a href="doc.school_id.website">School Website</a>-->
+<!--        <a t-att-href="doc.school_id.website">School Website</a>-->
+<!--        <a t-attf-href="https://www.example.com/#{doc.school_id.website}">School Website</a>-->
+<!--        <p t-att-style="'background-color: red;'">This is a paragraph</p>-->
+<!--        <p t-attf-style="background-color: {{doc.school_id.color}};">This is a paragraph</p>-->
+        <div class="my_class" t-attf-style="background-color: {{doc.school_id.color}};">
+            <p>This is a single line paragraph</p>
+        </div>
     </template>
+
+    <record id="school_management_student_report_paper_format" model="report.paperformat">
+        <field name="name">School Student</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">32</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_spacing">35</field>
+<!--        <field name="disable_shrinking" eval="True"/>-->
+        <field name="dpi">90</field>
+    </record>
 
     <record id="school_management_student_report_action" model="ir.actions.report">
         <field name="name">Student Report</field>
@@ -134,5 +150,6 @@
         <field name="print_report_name">"Student Report"</field>
         <field name="binding_model_id" ref="school_management.model_school_management_student"/>
         <field name="binding_type">report</field>
+<!--        <field name="paperformat_id" ref="school_management_student_report_paper_format"/>-->
     </record>
 </odoo>

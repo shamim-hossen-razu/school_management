@@ -32,6 +32,7 @@
                                 <field name="parent_id"/>
                                 <field name="active"/>
                                 <field name="parent_name"/>
+                                <field name="student_image" widget="image"/>
                             </group>
                         </group>
                         <notebook>
@@ -103,13 +104,13 @@
                                         </h5>
                                     </div>
                                     <div class="col-6 o_kanban_card_manage_section o_kanban_manage_reporting">
-                                        <h5 role="menuitem" class="o_kanban_card_manage_title" groups="project.group_project_user">
+                                        <h5 role="menuitem" class="o_kanban_card_manage_title">
                                             <span>Reporting</span>
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="o_kanban_card_manage_settings row">
-                                    <div role="menuitem" aria-haspopup="true" class="col-6" groups="project.group_project_manager">
+                                    <div role="menuitem" aria-haspopup="true" class="col-6">
                                         <ul class="oe_kanban_colorpicker" data-field="color" role="popup"/>
                                     </div>
                                 </div>
