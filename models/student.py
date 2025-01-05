@@ -33,20 +33,20 @@ class Student(models.Model):
             self.weight_in_pounds = self.weight_in_kg * 2.20462
 
     # This method is invoked by the unlink method while deleting a record of this model
-    @api.ondelete(at_uninstall=False)
-    def _unlink_if_no_result(self):
-
-        x = self._read_group([('standard', '=', 9)], groupby=['section'], aggregates=['age:sum'],
-                            having=[('age:sum', '>', 15)], offset=0, limit=None, order=None)
-
-        y = self.read_group([('standard', '=', 9)], fields=['age:sum'], groupby=['section'], offset=0, limit=None)
-
-        for record in self:
-
-            z = record.search_fetch([('age', '>', 15)], ['name', 'age'])
-
-            if record.school_id:
-                raise UserError('Cannot delete a student with school.')
+    # @api.ondelete(at_uninstall=False)
+    # def _unlink_if_no_result(self):
+    #
+    #     x = self._read_group([('standard', '=', 9)], groupby=['section'], aggregates=['age:sum'],
+    #                         having=[('age:sum', '>', 15)], offset=0, limit=None, order=None)
+    #
+    #     y = self.read_group([('standard', '=', 9)], fields=['age:sum'], groupby=['section'], offset=0, limit=None)
+    #
+    #     for record in self:
+    #
+    #         z = record.search_fetch([('age', '>', 15)], ['name', 'age'])
+    #
+    #         if record.school_id:
+    #             raise UserError('Cannot delete a student with school.')
 
     @api.model
     def _assign_group(self, *args, **kwargs):

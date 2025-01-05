@@ -1,8 +1,32 @@
 <odoo>
+    <template id="sale_order_proposal_layout">
+        <div class="header">
+            <div class="row">
+                <h1 style="text-center">This is my custom layout header</h1>
+            </div>
+        </div>
+<!--        remember to use t-raw="0" to render the content of the template-->
+        <div class="article o_report_layout_standard">
+            <t t-call="web.html_container">
+                <t t-raw="0"/>
+            </t>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+                <h4 class="text-center">This is my custom layout footer</h4>
+            </div>
+        </div>
+
+    </template>
+
     <template id="report_saleorder_proposal">
         <t t-call="web.html_container">
+<!--            Remember to use docs as the recordset to iterate over the records.-->
             <t t-foreach="docs" t-as="o">
-                <h1>My Custom Sale Order Proposal Report</h1>
+                <t t-call="school_management.sale_order_proposal_layout">
+                    <h1 class="text-center"><span t-esc="o.name"/></h1>
+                </t>
             </t>
         </t>
     </template>
