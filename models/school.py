@@ -41,4 +41,8 @@ class School(models.Model):
     def print_school_report(self):
         return self.env.ref('school_management.school_management_school_report_action').report_action(self)
 
-
+    def print_school_student_count_report(self):
+        data = {'count': len(self.student_ids)}
+        print()
+        return self.env.ref('school_management.school_management_school_student_count_report_action').report_action(
+            self, data=data)

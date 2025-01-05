@@ -10,6 +10,9 @@
                     <header>
                         <button name="print_school_report" string="Print School Report" type="object"
                                 class="btn-primary"/>
+
+                        <button name="print_school_student_count_report" string="Student Count Report" type="object"
+                                class="btn-primary"/>
                     </header>
                     <group>
                         <group>
