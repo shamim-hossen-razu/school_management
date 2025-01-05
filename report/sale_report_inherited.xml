@@ -2,6 +2,32 @@
 
     <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
 
+        <xpath expr="//thead" position="before">
+            <tr>
+                <td colspan="6">
+                    <hr style="border: 1px solid black; margin: 0;"/>
+                </td>
+            </tr>
+        </xpath>
+
+        <xpath expr="//thead" position="after">
+            <tr>
+                <td colspan="6">
+                    <hr style="border: 1px solid black; margin: 0;"/>
+                </td>
+            </tr>
+        </xpath>
+
+         <xpath expr="//tr[contains(@t-att-class, 'o_line_section') or contains(@t-att-class, 'o_line_note')]"
+               position="after">
+
+            <tr>
+                <td colspan="6">
+                    <hr style="border: 1px solid black; margin: 0;"/>
+                </td>
+            </tr>
+        </xpath>
+
         <xpath expr="//th[@name='th_description']" position="after">
             <th name="th_product_image" class="text-center">Image</th>
         </xpath>
