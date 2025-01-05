@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_report_saleorder_proposal" model="ir.actions.report">
+            <field name="name">Proposal</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_management.report_saleorder_proposal</field>
+            <field name="report_file">school_management.report_saleorder_proposal</field>
+            <field name="print_report_name">(object.name)</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
+</odoo>
