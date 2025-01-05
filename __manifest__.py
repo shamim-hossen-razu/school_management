@@ -18,7 +18,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
@@ -31,8 +31,10 @@
         'views/course.xml',
         'views/school.xml',
         'views/menus.xml',
+        'views/sale_order_line_inherited.xml',
         'report/basic_report_template.xml',
         'report/school_report.xml',
+
         # 'report/inherited_templates.xml',
         # 'views/templates.xml',
     ],
