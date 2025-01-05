@@ -57,7 +57,26 @@
 <!--            Remember to use docs as the recordset to iterate over the records.-->
             <t t-foreach="docs" t-as="o">
                 <t t-call="school_management.sale_order_proposal_layout">
-                    <h1 class="text-center"><span t-esc="o.name"/></h1>
+                    <div class="page">
+
+                        <t t-foreach="o.order_line" t-as="line">
+                            <div>
+                                <tr>
+                                    <td colspan="6">
+                                        <hr style="border: 1px solid black; margin: 0;"/>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div>
+                                <strong>Product Name:</strong>
+                                <span t-field="line.product_template_id.name"/>
+                                <img t-if="line.product_image" t-att-src="image_data_uri(line.product_image)"
+                                     style="width: 100%; height: auto; display: block;" alt="Product Image"/>
+                            </div>
+                            <div style="page-break-after: always;"/>
+                        </t>
+
+                    </div>
                 </t>
             </t>
         </t>
