@@ -2,7 +2,28 @@
     <template id="sale_order_proposal_layout">
         <div class="header">
             <div class="row">
-                <h1 style="text-center">This is my custom layout header</h1>
+                <t t-if="not o" t-set="o" t-value="doc"/>
+                <t t-if="not company">
+                    <!-- Multicompany -->
+                    <t t-if="company_id">
+                        <t t-set="company" t-value="company_id"/>
+                    </t>
+                    <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                        <t t-set="company" t-value="o.company_id.sudo()"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                </t>
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img alt="logo" t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                             style="max-height:90px;"/>
+                    </div>
+                    <div class="col-9 text-right">
+                        <span t-if="company.company_details" t-field="company.company_details"/>
+                    </div>
+                </div>
             </div>
         </div>
 <!--        remember to use t-raw="0" to render the content of the template-->
@@ -14,7 +35,18 @@
 
         <div class="footer">
             <div class="row">
-                <h4 class="text-center">This is my custom layout footer</h4>
+                <div class="col-4">
+                    <span t-field="company.email"/>
+                </div>
+                <div class="col-4">
+                    <span t-field="company.phone"/>
+                    <br/>
+                    <span t-field="company.mobile"/>
+                </div>
+                <div class="col-4">
+                    <span t-field="company.website"/>
+                    <br/>
+                </div>
             </div>
         </div>
 
