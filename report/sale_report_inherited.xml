@@ -1,0 +1,17 @@
+<odoo>
+
+    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_product_image" class="text-center">Image</th>
+        </xpath>
+
+        <xpath expr="//td[@name='td_name']" position="after">
+            <td name="td_product_image" class="text-center">
+                <img t-if="line.product_image" t-att-src="image_data_uri(line.product_image)"
+                     style="max-width: 100px; max-height: 100px;" alt="Product Image"/>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>

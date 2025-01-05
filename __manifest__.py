@@ -32,6 +32,7 @@
         'views/school.xml',
         'views/menus.xml',
         'views/sale_order_line_inherited.xml',
+        'report/sale_report_inherited.xml',
         'report/basic_report_template.xml',
         'report/school_report.xml',
 
