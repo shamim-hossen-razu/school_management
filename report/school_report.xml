@@ -50,9 +50,10 @@
                 <ul class="list-inline mb4">
                     <span t-field="company.report_footer"/>
                 </ul>
-
-
             </div>
+            <p class="text-center">Page <span class="page"/></p>
+
+
         </div>
     </template>
 
@@ -65,7 +66,9 @@
                         <h1>School Name:
                             <span t-esc="school.name"/>
                         </h1>
-
+                        <t t-foreach="range(0,100)" t-as="i">
+                            <p>Some Text</p>
+                        </t>
                     </div>
                 </t>
 
