@@ -85,4 +85,15 @@
         <field name="binding_model_id" ref="school_management.model_school_management_school"/>
         <field name="binding_type">report</field>
     </record>
+
+    <record id="school_management_school_report_action_2" model="ir.actions.report">
+        <field name="name">School Report 2</field>
+        <field name="model">school_management.school</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.school_report_template</field>
+        <field name="report_file">school_management.school_report_template</field>
+        <field name="print_report_name">"School Report"</field>
+        <field name="binding_model_id" ref="school_management.model_school_management_school"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
