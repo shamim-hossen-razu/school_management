@@ -25,6 +25,7 @@
                     </div>
                     <div class="col-9 text-right">
                         <span t-if="company.company_details" t-field="company.company_details"/>
+                        <p t-out="context_timestamp(datetime.datetime.now())"/>
                     </div>
                 </div>
             </div>
