@@ -51,7 +51,7 @@
                     <span t-field="company.report_footer"/>
                 </ul>
             </div>
-            <p class="text-center">Page <span class="page"/></p>
+            <p class="text-center">Page <span class="page"/> / <span class="topage"/></p>
 
 
         </div>

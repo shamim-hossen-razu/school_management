@@ -38,6 +38,7 @@ class School(models.Model):
     playground_ids = fields.Many2many('school_management.playground', string='Playgrounds')
     swimming_pool_ids = fields.Many2many('school_management.swimming_pool', 'school_id', string='Swimming Pools')
 
-
+    def print_school_report(self):
+        return self.env.ref('school_management.school_management_school_report_action').report_action(self)
 
 
