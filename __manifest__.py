@@ -32,6 +32,7 @@
         'views/playground.xml',
         'views/school.xml',
         'views/menus.xml',
+        'views/email_templates.xml',
         'views/sale_order_line_inherited.xml',
         'report/sale_report_template_inherited.xml',
         'report/basic_report_template.xml',

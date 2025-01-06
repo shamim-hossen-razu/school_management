@@ -26,6 +26,7 @@
                                 <field name="admission_date"/>
                                 <field name="group"/>
                                 <field name="weight_in_kg"/>
+                                <field name="email"/>
                             </group>
                             <group>
                                 <field name="weight_in_pounds"/>

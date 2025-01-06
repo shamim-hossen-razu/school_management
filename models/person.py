@@ -10,6 +10,7 @@ class BasePerson(models.AbstractModel):
     age = fields.Float(compute='_compute_age', store=True, precompute=False, inverse='_inverse_age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
     date_of_birth = fields.Date(string='Date of Birth', default_export_compatible=True)
+    email = fields.Char()
 
     @api.depends('date_of_birth')
     def _compute_age(self):
