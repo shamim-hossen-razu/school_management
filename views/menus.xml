@@ -10,6 +10,8 @@
                 action="school_management_course_action" sequence="30"/>
     <menuitem id="school_management_school_menu" name="School" parent="school_management_menu"
                 action="school_management_school_action" sequence="40"/>
+    <menuitem id="school_management_playground_menu" name="Playground" parent="school_management_menu"
+                action="school_management_playground_action" sequence="50"/>
 
 
 

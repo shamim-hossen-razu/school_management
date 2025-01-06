@@ -29,6 +29,7 @@
         'views/student.xml',
         'views/student_result.xml',
         'views/course.xml',
+        'views/playground.xml',
         'views/school.xml',
         'views/menus.xml',
         'views/sale_order_line_inherited.xml',

@@ -7,6 +7,8 @@ class Playground(models.Model):
 
     name = fields.Char()
     location = fields.Char()
+    area = fields.Float()
+    type = fields.Selection([('indoor', 'Indoor'), ('outdoor', 'Outdoor')], default='outdoor')
 
 
 class SwimmingPool(models.Model):
@@ -43,6 +45,12 @@ class School(models.Model):
 
     def print_school_student_count_report(self):
         data = {'count': len(self.student_ids)}
-        print()
         return self.env.ref('school_management.school_management_school_student_count_report_action').report_action(
             self, data=data)
+
+    def return_action_to_open_student_list(self):
+        action = self.env.ref('school_management.school_management_student_action').read()[0]
+        action['domain'] = [('school_id', '=', self.id)]
+        action['context'] = {'default_school_id': self.id}
+        action['views'] = [(self.env.ref('school_management.school_management_student_view_tree').id, 'tree')]
+        return action

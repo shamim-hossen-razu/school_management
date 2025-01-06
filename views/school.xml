@@ -58,9 +58,60 @@
         </field>
     </record>
 
+    <record id="school_management_school_view_kanban" model="ir.ui.view">
+        <field name="name">school.management.school.view.kanban</field>
+        <field name="model">school_management.school</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard">
+                <field name="name"/>
+                <field name="address"/>
+                <field name="contact"/>
+                <field name="email"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_card_header">
+                                    <div class="oe_kanban_card_title">
+                                        <field name="name"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_card_content">
+                                    <div>
+                                        <field name="address"/>
+                                    </div>
+                                    <div>
+                                        <field name="contact"/>
+                                    </div>
+                                    <div>
+                                        <field name="email"/>
+                                    </div>
+                                </div>
+<!--                                <div class="oe_kanban_card_footer">-->
+<!--                                    <a type="action" name="%(school_management_student_action)d"-->
+<!--                                       class="oe_kanban_action oe_kanban_action_primary">Show Students</a>-->
+<!--                                </div>-->
+                                <div class="oe_kanban_card_footer">
+                                    <a type="action" name="%(school_management_student_action)d"
+                                       class="oe_kanban_action oe_kanban_action_primary">Show All Students</a>
+                                    <a type="object" name="return_action_to_open_student_list"
+                                       class="oe_kanban_action oe_kanban_action_primary">Show Students of Current School</a>
+
+                                </div>
+                                <div class="oe_kanban_card_bottom">
+                                    <t t-esc="record.name.value"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="school_management_school_action" model="ir.actions.act_window">
         <field name="name">School</field>
         <field name="res_model">school_management.school</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 </odoo>
