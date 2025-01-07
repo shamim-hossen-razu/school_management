@@ -6,9 +6,9 @@
         <field name="subject">Welcome to School</field>
         <field name="email_from">{{object.school_id.email}}</field>
         <field name="email_to">{{object.email}}</field>
-        <field name="body_html">
-            Dear Students,
-            Welcome to our school.
+        <field name="body_html" type="html">
+            <h3>Dear Students,</h3>
+            <p>Welcome to our school.</p>
         </field>
     </record>
 </odoo>
