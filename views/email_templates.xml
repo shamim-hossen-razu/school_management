@@ -9,6 +9,14 @@
         <field name="body_html" type="html">
             <h3>Dear Student <span t-field="object.name"/></h3>
             <p>Welcome to <span t-field="object.school_id.name"/> </p>
+            <t t-if="object.date_of_birth">
+                <p>Your Date of Birth is <span t-field="object.date_of_birth"/></p>
+            </t>
+            <t t-else="">
+                <p>Your Date of Birth is not available</p>
+            </t>
+            <p t-if="object.admission_date">Your Admission Date is <span t-field="object.admission_date"/></p>
+
         </field>
     </record>
 </odoo>
