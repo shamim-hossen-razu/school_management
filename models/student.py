@@ -74,5 +74,8 @@ class Student(models.Model):
             'target': 'new',
         }
 
+    def send_email(self):
+        self.env.ref('school_management.student_email_template').send_mail(self.id)
+
 
 

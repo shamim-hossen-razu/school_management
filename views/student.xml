@@ -7,6 +7,9 @@
             <field name="arch" type="xml">
                 <form string="School Student" create="true" edit="true" duplicate="true" delete="true"
                       disable_autofocus="true">
+                    <header>
+                        <button name="send_email" string="Send By Email" type="object" class="btn-primary"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
