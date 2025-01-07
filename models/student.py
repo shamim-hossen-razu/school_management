@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 class Student(models.Model):
     _name = 'school_management.student'
     _description = 'Student'
-    _inherit = 'base.person'
+    _inherit = ['base.person', 'mail.thread', 'mail.activity.mixin']
     _sql_constraints = [
         ('unique_roll_number', 'unique(roll_number,standard)', 'Roll number must be unique.')
     ]

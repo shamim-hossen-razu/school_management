@@ -6,6 +6,7 @@
         <field name="subject">Welcome to School</field>
         <field name="email_from">{{object.school_id.email}}</field>
         <field name="email_to">{{object.email}}</field>
+        <field name="report_template_ids" eval="[(4, ref('school_management.school_management_student_report_action'))]"/>
         <field name="body_html" type="html">
             <h3>Dear Student <span t-field="object.name"/></h3>
             <img t-attf-src="data:image/png;base64,{{object.student_image}}"
