@@ -16,6 +16,9 @@
                 <p>Your Date of Birth is not available</p>
             </t>
             <p t-if="object.admission_date">Your Admission Date is <span t-field="object.admission_date"/></p>
+            <t t-foreach="object.result_ids" t-as="result">
+                <p>Subject: <span t-esc="result.course_id.name"/> - Marks: <span t-esc="result.grade"/></p>
+            </t>
 
         </field>
     </record>
