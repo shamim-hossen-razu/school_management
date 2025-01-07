@@ -1,0 +1,1020 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* school_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-07 02:15+0000\n"
+"PO-Revision-Date: 2025-01-07 02:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: school_management
+#: model:ir.actions.report,print_report_name:school_management.school_management_school_report_action
+msgid "\"School Report\""
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,print_report_name:school_management.school_management_student_report_action
+msgid "\"Student Report\""
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,print_report_name:school_management.school_management_school_student_count_report_action
+msgid "'Count of - %s' % (object.name)"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,print_report_name:school_management.action_report_saleorder_proposal
+msgid "(object.name)"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_course__standard__10
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__standard__10
+msgid "10"
+msgstr ""
+
+#. module: school_management
+#: model:mail.template,body_html:school_management.student_email_template
+msgid ""
+"<h3>Dear Student <span t-field=\"object.name\"></span></h3>\n"
+"            <img t-attf-src=\"data:image/png;base64,{{object.student_image}}\" style=\"width:65px;height:65px;object-fit:cover;\">\n"
+"            <p>Welcome to <span t-field=\"object.school_id.name\"></span> </p>\n"
+"            <t t-if=\"object.date_of_birth\">\n"
+"                <p>Your Date of Birth is <span t-field=\"object.date_of_birth\"></span></p>\n"
+"            </t>\n"
+"            <t t-else=\"\">\n"
+"                <p>Your Date of Birth is not available</p>\n"
+"            </t>\n"
+"            <p t-if=\"object.admission_date\">Your Admission Date is <span t-field=\"object.admission_date\"></span></p>\n"
+"            <t t-foreach=\"object.result_ids\" t-as=\"result\">\n"
+"                <p>Subject: <span t-esc=\"result.course_id.name\"></span> - Marks: <span t-esc=\"result.grade\"></span></p>\n"
+"            </t>\n"
+"\n"
+"        "
+msgstr ""
+
+"<h3>প্রিয় শিক্ষার্থী<span t-field=\"object.name\"></span></h3>\n"
+"            <img t-attf-src=\"data:image/png;base64,{{object.student_image}}\" style=\"width:65px;height:65px;object-fit:cover;\">\n"
+"            <p>Welcome to <span t-field=\"object.school_id.name\"></span> </p>\n"
+"            <t t-if=\"object.date_of_birth\">\n"
+"                <p>আপনার জন্ম তারিখ হল <span t-field=\"object.date_of_birth\"></span></p>\n"
+"            </t>\n"
+"            <t t-else=\"\">\n"
+"                <p>Your Date of Birth is not available</p>\n"
+"            </t>\n"
+"            <p t-if=\"object.admission_date\">আপনার ভর্তির তারিখ হল <span t-field=\"object.admission_date\"></span></p>\n"
+"            <t t-foreach=\"object.result_ids\" t-as=\"result\">\n"
+"                <p>Subject: <span t-esc=\"result.course_id.name\"></span> - Marks: <span t-esc=\"result.grade\"></span></p>\n"
+"            </t>\n"
+"\n"
+"        "
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "<span>Reporting</span>"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "<span>View</span>"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.report_saleorder_proposal
+msgid "<strong>Product Name:</strong>"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "A very Simple PDF Report"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_needaction
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__active
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__active
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__active
+msgid "Active"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_exception_decoration
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_state
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_type_icon
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__address
+msgid "Address"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__admission_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__admission_date
+msgid "Admission Date"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_base_person__age
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__age
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__age
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__age
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__age
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "Age"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__annual_income
+msgid "Annual Income"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__area
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_search
+msgid "Area"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__group__arts
+msgid "Arts"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_attachment_count
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__version__bangla
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__bangla
+msgid "Bangla"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_base_person
+msgid "Base Person"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__occupation__business
+msgid "Business"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__child_ids
+msgid "Children"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__color
+msgid "Color"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__group__commerce
+msgid "Commerce"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__contact
+msgid "Contact"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.school_management_course_action
+#: model:ir.model,name:school_management.model_school_management_course
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__course_id
+#: model:ir.ui.menu,name:school_management.school_management_course_menu
+msgid "Course"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__code
+msgid "Course Code"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__teacher_ids
+msgid "Course Teachers"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "Create a Student"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__create_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__create_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_base_person__date_of_birth
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__date_of_birth
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__occupation
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__date_of_birth
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__date_of_birth
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__date_of_birth
+msgid "Date of Birth"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__depth
+msgid "Depth"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__display_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_base_person__email
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__email
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__email
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__email
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__email
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__email
+msgid "Email"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__version__english
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__english
+msgid "English"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__established_date
+msgid "Established Date"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__base_person__gender__female
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__gender__female
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__gender__female
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__gender__female
+msgid "Female"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_follower_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_partner_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__activity_type_icon
+#: model:ir.model.fields,help:school_management.field_school_management_student__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_base_person__gender
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__gender
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__gender
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__gender
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__gender
+msgid "Gender"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__grade
+msgid "Grade"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__group
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__group
+msgid "Group"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__has_message
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: school_management
+#. odoo-javascript
+#: code:addons/school_management/static/src/portal_component/my_component.xml:0
+#, python-format
+msgid "Hello, World!"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__occupation__housewife
+msgid "Housewife"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__id
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__id
+msgid "ID"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_exception_icon
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__activity_exception_icon
+#: model:ir.model.fields,help:school_management.field_school_management_student__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__message_needaction
+#: model:ir.model.fields,help:school_management.field_school_management_student__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__message_has_error
+#: model:ir.model.fields,help:school_management.field_school_management_result__message_has_sms_error
+#: model:ir.model.fields,help:school_management.field_school_management_student__message_has_error
+#: model:ir.model.fields,help:school_management.field_school_management_student__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.report_saleorder_document_inherit
+msgid "Image"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_playground__type__indoor
+msgid "Indoor"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_is_follower
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__job_age
+msgid "Job Duration"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__joining_date
+msgid "Joining Date"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__write_uid
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__write_date
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__length
+msgid "Length"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__location
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__location
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_search
+msgid "Location"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__base_person__gender__male
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__gender__male
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__gender__male
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__gender__male
+msgid "Male"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__marks
+msgid "Marks"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__math
+msgid "Math"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_has_error
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__my_activity_date_deadline
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "My Variable"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_base_person__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__name
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__name
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_search
+msgid "Name"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_calendar_event_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_date_deadline
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_summary
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_type_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_parent__nick_name
+msgid "Nick Name"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_needaction_counter
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_has_error_counter
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__message_needaction_counter
+#: model:ir.model.fields,help:school_management.field_school_management_student__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__message_has_error_counter
+#: model:ir.model.fields,help:school_management.field_school_management_student__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__base_person__gender__other
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__gender__other
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__occupation__other
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__gender__other
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__gender__other
+msgid "Other"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_playground__type__outdoor
+msgid "Outdoor"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.my_custom_layout
+msgid "Page <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_management_parent
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__parent_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__parent_name
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__parent_name
+msgid "Parent Name"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__path_name
+msgid "Path Name"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.school_management_playground_action
+#: model:ir.model,name:school_management.model_school_management_playground
+#: model:ir.ui.menu,name:school_management.school_management_playground_menu
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_form
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_search
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_tree
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+msgid "Playground"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__playground_ids
+msgid "Playgrounds"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+msgid "Print School Report"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_sale_order_line__product_image
+#: model_terms:ir.ui.view,arch_db:school_management.report_saleorder_document_inherit
+#: model_terms:ir.ui.view,arch_db:school_management.report_saleorder_proposal
+msgid "Product Image"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,name:school_management.action_report_saleorder_proposal
+msgid "Proposal"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__rating_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__religion
+msgid "Religion"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__parent_id
+msgid "Reporting Manager"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__activity_user_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_management_result
+msgid "Result"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__result_date
+msgid "Result Date"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__result_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__result_ids
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_form
+msgid "Results"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__roll_number
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__roll_number
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "Roll Number"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.constraint,message:school_management.constraint_school_management_student_unique_roll_number
+msgid "Roll number must be unique."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__message_has_sms_error
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.school_management_school_action
+#: model:ir.model,name:school_management.model_school_management_school
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__school_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__school_id
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__school_id
+#: model:ir.ui.menu,name:school_management.school_management_school_menu
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_tree
+msgid "School"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__school_code
+msgid "School Code"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_course_view_form
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_course_view_tree
+msgid "School Course"
+msgstr ""
+
+#. module: school_management
+#: model:ir.ui.menu,name:school_management.school_management_menu
+msgid "School Management"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_report_template
+#: model_terms:ir.ui.view,arch_db:school_management.sub_template
+msgid "School Name:"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,name:school_management.school_management_school_report_action
+msgid "School Report"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.school_management_student_action
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_form
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_tree
+msgid "School Student"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_result_view_form
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_result_view_tree
+msgid "School Student Result"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "School Website"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_student__group__science
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__science
+msgid "Science"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_search
+msgid "Search Student"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__section
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__section
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "Section"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_form
+msgid "Send By Email"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_parent__occupation__service
+msgid "Service"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_kanban
+msgid "Show All Students"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_kanban
+msgid "Show Students of Current School"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields.selection,name:school_management.selection__school_management_teacher__subject__social_science
+msgid "Social Science"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_report_template
+msgid "Some Text"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__standard
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__standard
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__standard
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "Standard"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__activity_state
+#: model:ir.model.fields,help:school_management.field_school_management_student__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_management_student
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__student_id
+#: model:ir.ui.menu,name:school_management.school_management_student_menu
+msgid "Student"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,name:school_management.school_management_school_student_count_report_action
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+msgid "Student Count Report"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_student_count_report
+msgid "Student Count:"
+msgstr ""
+
+#. module: school_management
+#: model:mail.template,name:school_management.student_email_template
+msgid "Student Email Template"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__student_image
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__student_image
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "Student Image"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.sub_template
+msgid "Student Name:"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.report,name:school_management.school_management_student_report_action
+msgid "Student Report"
+msgstr ""
+
+#. module: school_management
+#: model:ir.actions.act_window,name:school_management.school_management_student_result_action
+#: model:ir.ui.menu,name:school_management.school_management_student_result_menu
+msgid "Student Result"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_course__student_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__student_ids
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+msgid "Students"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__subject
+msgid "Subject"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_teacher__subordinate_teacher_ids
+msgid "Subordinate Teachers"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_management_swimming_pool
+msgid "Swimming Pool"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__swimming_pool_ids
+msgid "Swimming Pools"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model,name:school_management.model_school_management_teacher
+msgid "Teacher"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__teacher_ids
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_school_view_form
+msgid "Teachers"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.sub_template
+msgid "This is a single line paragraph"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.actions.act_window,help:school_management.school_management_playground_action
+msgid "This is the list of playgrounds."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_playground__type
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_playground_view_search
+msgid "Type"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__activity_exception_decoration
+#: model:ir.model.fields,help:school_management.field_school_management_student__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__version
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__version
+msgid "Version"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_school__website
+msgid "Website"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__website_message_ids
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,help:school_management.field_school_management_result__website_message_ids
+#: model:ir.model.fields,help:school_management.field_school_management_student__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__weight_in_kg
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__weight_in_kg
+msgid "Weight In Kg"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_result__weight_in_pounds
+#: model:ir.model.fields,field_description:school_management.field_school_management_student__weight_in_pounds
+msgid "Weight In Pounds"
+msgstr ""
+
+#. module: school_management
+#: model:mail.template,subject:school_management.student_email_template
+msgid "Welcome to School"
+msgstr ""
+
+#. module: school_management
+#: model:ir.model.fields,field_description:school_management.field_school_management_swimming_pool__width
+msgid "Width"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.basic_student_report_template
+msgid "add dynamic image"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.my_custom_layout
+#: model_terms:ir.ui.view,arch_db:school_management.sale_order_proposal_layout
+msgid "logo"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "roll number"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "standard"
+msgstr ""
+
+#. module: school_management
+#: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
+msgid "years old"
+msgstr ""
