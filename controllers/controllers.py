@@ -27,3 +27,11 @@ class SchoolManagement(http.Controller):
                 </body>
             </html>
         """
+
+    @http.route('/school_management/students', auth='public', website=True)
+    def students(self, **kw):
+        students = request.env['school_management.student'].search([])
+
+        return request.render('school_management.students', {
+            'students': students
+        })
