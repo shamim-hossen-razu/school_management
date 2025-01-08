@@ -12,3 +12,18 @@ class SchoolManagement(http.Controller):
         </div>
         """
         return {'html': banner_html}
+
+    @http.route('/index', auth='none')
+    def index(self, **kw):
+        # return "Hello, world"
+
+        return """
+            <html>
+                <head>
+                    <title>School Management System</title>
+                </head>
+                <body>
+                    <h1>Welcome to School Management System</h1>
+                </body>
+            </html>
+        """
