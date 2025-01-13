@@ -3,11 +3,12 @@
 
 
 <!--        add a new menu in portal-->
-        <template id="portal_my_home_vendor" inherit_id="portal.portal_my_home">
+        <template id="portal_my_school_home" inherit_id="portal.portal_my_home">
             <xpath expr="//div[@id='portal_vendor_category']" position="inside">
                 <t t-call="portal.portal_docs_entry">
                     <t t-set="icon" t-value="'/sale/static/src/img/bag.svg'"/>
                     <t t-set="title">School</t>
+                    <t t-set="placeholder_count" t-value="'school_count'"/>
                     <t t-set="text">My School</t>
                     <t t-set="url" t-value="'/my/create_supplier'"/>
                     <t t-set="config_card" t-value="True"/>
