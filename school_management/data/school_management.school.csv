@@ -1,11 +1,11 @@
-id,name
-101,Oakwood Academy
-102,Maple Valley High
-103,Riverstone College
-104,Sunrise Preparatory School
-105,Greenfield Institute
-106,Northview School of Excellence
-107,Pinecrest Charter School
-108,Willowbrook Learning Center
-109,Horizon International School
-110,Meadowlands School
+id,name,address,contact,email,website
+101,Oakwood Academy,123 Oak St Springfield,(555) 123-4567,info@oakwoodacademy.edu,www.oakwoodacademy.edu
+102,Maple Valley High,456 Maple Ave Rivertown,(555) 234-5678,contact@maplevalleyhigh.edu,www.maplevalleyhigh.edu
+103,Riverstone College,789 River Rd Laketown,(555) 345-6789,admin@riverstonecollege.edu,www.riverstonecollege.edu
+104,Sunrise Preparatory School,321 Sunrise Blvd Eastfield,(555) 456-7890,hello@sunriseprep.edu,www.sunriseprep.edu
+105,Greenfield Institute,654 Green Way Green City,(555) 567-8901,admissions@greenfieldinstitute.edu,www.greenfieldinstitute.edu
+106,Northview School of Excellence,987 Northview Ln Hilltop,(555) 678-9012,info@northviewschool.edu,www.northviewschool.edu
+107,Pinecrest Charter School,135 Pinecrest Dr Pineville,(555) 789-0123,office@pinecrestcharter.edu,www.pinecrestcharter.edu
+108,Willowbrook Learning Center,246 Willow St Brooktown,(555) 890-1234,contact@willowbrooklearning.edu,www.willowbrooklearning.edu
+109,Horizon International School,369 Horizon Ave Coast City,(555) 901-2345,info@horizonschool.edu,www.horizonschool.edu
+110,Meadowlands School,147 Meadow Ln Meadowville,(555) 012-3456,administration@meadowlands.edu,www.meadowlands.edu

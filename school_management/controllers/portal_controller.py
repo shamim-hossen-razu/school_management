@@ -11,6 +11,8 @@ class MySchoolPortal(CustomerPortal):
 
     @http.route(['/my/school'], type='http', auth='user', website=True)
     def my_school(self, **kw):
-        print("/my/school api called")
-        return None
+        schools = request.env['school_management.school'].search([])
+        return request.render('school_management.school_list_view_template', {
+            'schools': schools
+        })
 

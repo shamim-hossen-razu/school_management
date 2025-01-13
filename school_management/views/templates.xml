@@ -16,5 +16,39 @@
             </xpath>
         </template>
 
+        <template id="school_list_view_template">
+            <t t-call="portal.portal_layout">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>My School</h1>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Website</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="schools" t-as="school">
+                                        <tr>
+                                            <td><t t-esc="school.name"/></td>
+                                            <td><t t-esc="school.address"/></td>
+                                            <td><t t-esc="school.contact"/></td>
+                                            <td><t t-esc="school.email"/></td>
+                                            <td><t t-esc="school.website"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
     </data>
 </odoo>
