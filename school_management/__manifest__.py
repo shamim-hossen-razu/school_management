@@ -26,6 +26,7 @@
         'data/school_management.student.csv',
         'data/student_data.xml',
         'data/school_management.parent.csv',
+        'data/school_management.school.csv',
         'views/student.xml',
         'views/student_result.xml',
         'views/course.xml',
