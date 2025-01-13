@@ -1012,7 +1012,7 @@ msgstr ""
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
 msgid "standard"
-msgstr ""
+msgstr "ক্লাস"
 
 #. module: school_management
 #: model_terms:ir.ui.view,arch_db:school_management.school_management_student_view_kanban
