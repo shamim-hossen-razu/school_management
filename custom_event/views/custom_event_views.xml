@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="custom_event_view_form" model="ir.ui.view">
+        <field name="name">custom.event.form</field>
+        <field name="model">custom.event</field>
+        <field name="arch" type="xml">
+            <form string="Custom Event">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="location"/>
+                        <field name="date"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="custom_event_list_view" model="ir.ui.view">
+        <field name="name">custom.event.list</field>
+        <field name="model">custom.event</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Event">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="custom_event_action" model="ir.actions.act_window">
+        <field name="name">Custom Event</field>
+        <field name="res_model">custom.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="custom_event_root_menu" name="Custom Event" sequence="10"/>
+    <menuitem id="custom_event_menu" name="Custom Event"
+              parent="custom_event_root_menu"
+              action="custom_event_action"/>
+
+</odoo>

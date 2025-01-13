@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_event_snippet" name="Custom Event">
+        <section class="container custom_event">
+            <div class="row">
+                <t t-foreach="events" t-as="event">
+                    <div class="col-md-12 card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="card-title text-primary" t-esc="event.name"/>
+                            <p class="card-text text-muted" t-esc="event.location"/>
+                            <p class="card-text text-muted" t-esc="event.date"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </section>
+    </template>
+
+
+</odoo>

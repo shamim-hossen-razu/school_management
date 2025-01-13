@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Event 1 -->
+    <record id="event_1" model="custom.event">
+        <field name="name">Partners Meetup</field>
+        <field name="location">Location 1</field>
+        <field name="date">2024-04-05</field>
+    </record>
+
+    <!-- Event 2 -->
+    <record id="event_2" model="custom.event">
+        <field name="name">Tech Conference</field>
+        <field name="location">New York</field>
+        <field name="date">2024-05-20</field>
+    </record>
+
+    <!-- Event 3 -->
+    <record id="event_3" model="custom.event">
+        <field name="name">Product Launch</field>
+        <field name="location">Los Angeles</field>
+        <field name="date">2024-06-10</field>
+    </record>
+
+    <!-- Event 4 -->
+    <record id="event_4" model="custom.event">
+        <field name="name">Annual Meeting</field>
+        <field name="location">London</field>
+        <field name="date">2024-07-15</field>
+    </record>
+
+    <!-- Event 5 -->
+    <record id="event_5" model="custom.event">
+        <field name="name">Developer Workshop</field>
+        <field name="location">Berlin</field>
+        <field name="date">2024-08-01</field>
+    </record>
+
+    <!-- Event 6 -->
+    <record id="event_6" model="custom.event">
+        <field name="name">Business Summit</field>
+        <field name="location">Tokyo</field>
+        <field name="date">2024-09-12</field>
+    </record>
+
+    <!-- Event 7 -->
+    <record id="event_7" model="custom.event">
+        <field name="name">Marketing Symposium</field>
+        <field name="location">Paris</field>
+        <field name="date">2024-10-22</field>
+    </record>
+
+    <!-- Event 8 -->
+    <record id="event_8" model="custom.event">
+        <field name="name">Sales Training</field>
+        <field name="location">Sydney</field>
+        <field name="date">2024-11-05</field>
+    </record>
+
+    <!-- Event 9 -->
+    <record id="event_9" model="custom.event">
+        <field name="name">Leadership Conference</field>
+        <field name="location">Toronto</field>
+        <field name="date">2024-12-01</field>
+    </record>
+
+    <!-- Event 10 -->
+    <record id="event_10" model="custom.event">
+        <field name="name">Annual Gala</field>
+        <field name="location">Dubai</field>
+        <field name="date">2024-12-20</field>
+    </record>
+
+    <!-- Event 11 -->
+    <record id="event_11" model="custom.event">
+        <field name="name">Tech Conference</field>
+        <field name="location">New York</field>
+        <field name="date">2025-01-15</field>
+    </record>
+
+    <!-- Event 12 -->
+    <record id="event_12" model="custom.event">
+        <field name="name">Music Festival</field>
+        <field name="location">Los Angeles</field>
+        <field name="date">2025-02-25</field>
+    </record>
+
+    <!-- Event 13 -->
+    <record id="event_13" model="custom.event">
+        <field name="name">Startup Expo</field>
+        <field name="location">London</field>
+        <field name="date">2025-03-10</field>
+    </record>
+
+    <!-- Event 14 -->
+    <record id="event_14" model="custom.event">
+        <field name="name">Art Exhibition</field>
+        <field name="location">Paris</field>
+        <field name="date">2025-04-05</field>
+    </record>
+
+    <!-- Event 15 -->
+    <record id="event_15" model="custom.event">
+        <field name="name">Food Festival</field>
+        <field name="location">Tokyo</field>
+        <field name="date">2025-05-20</field>
+    </record>
+
+    <!-- Event 16 -->
+    <record id="event_16" model="custom.event">
+        <field name="name">Literary Fest</field>
+        <field name="location">Berlin</field>
+        <field name="date">2025-06-15</field>
+    </record>
+
+    <!-- Event 17 -->
+    <record id="event_17" model="custom.event">
+        <field name="name">International Symposium</field>
+        <field name="location">Sydney</field>
+        <field name="date">2025-07-10</field>
+    </record>
+
+    <!-- Event 18 -->
+    <record id="event_18" model="custom.event">
+        <field name="name">Fashion Show</field>
+        <field name="location">Milan</field>
+        <field name="date">2025-08-30</field>
+    </record>
+
+    <!-- Event 19 -->
+    <record id="event_19" model="custom.event">
+        <field name="name">Business Summit</field>
+        <field name="location">Hong Kong</field>
+        <field name="date">2025-09-25</field>
+    </record>
+
+    <!-- Event 20 -->
+    <record id="event_20" model="custom.event">
+        <field name="name">Global Forum</field>
+        <field name="location">San Francisco</field>
+        <field name="date">2025-10-12</field>
+    </record>
+
+
+</odoo>

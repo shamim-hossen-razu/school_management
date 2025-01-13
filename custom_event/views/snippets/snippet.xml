@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="custom_event_snippets" inherit_id="website.snippets" priority="9">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="before">
+            <t t-snippet="custom_event.custom_event_snippet"
+               t-thumbnail="/custom_event/static/src/img/snippets/menu_icon.png"/>
+        </xpath>
+    </template>
+</odoo>
