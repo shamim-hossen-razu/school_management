@@ -10,7 +10,7 @@
                     <t t-set="title">School</t>
                     <t t-set="placeholder_count" t-value="'school_count'"/>
                     <t t-set="text">My School</t>
-                    <t t-set="url" t-value="'/my/create_supplier'"/>
+                    <t t-set="url" t-value="'/my/school'"/>
                     <t t-set="config_card" t-value="True"/>
                 </t>
             </xpath>
