@@ -40,7 +40,7 @@
         'report/sale_order_proposal_templates.xml',
         'report/sale_order_proposal_report_action.xml',
         # 'report/inherited_templates.xml',
-        # 'views/templates.xml',
+        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [
