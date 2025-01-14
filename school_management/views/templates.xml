@@ -72,6 +72,102 @@
             </t>
         </template>
 
+        <template id="school_details_view_portal" inherit_id="portal.portal_sidebar">
+            <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+                <t t-if="page_name == 'school_details'">
+                    <section style="background-color: #eee;">
+                        <div class="container py-5">
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                            <t t-if="school.image">
+                                                <img t-att-src="image_data_uri(school.image)"
+                                                     class="rounded-circle img-fluid" style="width: 100%;"/>
+                                            </t>
+                                            <t t-else="">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                                     alt="avatar"
+                                                     class="rounded-circle img-fluid" style="width: 150px;"/>
+                                            </t>
+                                            <h5 class="my-3">
+                                                <span t-esc="school.name"/>
+                                            </h5>
+                                            <p class="text-muted mb-1">
+                                                <span t-esc="school.email"/>
+                                            </p>
+                                            <p class="text-muted mb-4">
+                                                <span t-esc="school.website"/>
+                                            </p>
+                                            <div class="d-flex justify-content-center mb-2">.
+                                                <button type="button"
+                                                        class="btn btn-primary">Follow
+                                                </button>
+                                                <button type="button"
+                                                        class="btn btn-outline-primary ms-1">Message
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">School Name</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p t-esc="school.name"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">School Email</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p t-esc="school.email"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Website</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p t-esc="school.website"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Address</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p t-esc="school.address"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Contact</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p t-esc="school.contact"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </t>
+            </xpath>
+        </template>
+
 
     </data>
 </odoo>

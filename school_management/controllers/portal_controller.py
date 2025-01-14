@@ -19,7 +19,8 @@ class MySchoolPortal(CustomerPortal):
 
     @http.route(['/my/school/<int:school_id>'], type='http', auth='user', website=True)
     def my_school_detail(self, school_id, **kw):
-        school_id = request.env['school_management.school'].search([('id', '=', school_id)])
-        return None
+        school = request.env['school_management.school'].search([('id', '=', school_id)])
+        return request.render('school_management.school_details_view_portal', {'school': school,
+                                                                               'page_name': 'school_details'})
 
 

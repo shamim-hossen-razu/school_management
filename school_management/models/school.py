@@ -31,6 +31,7 @@ class School(models.Model):
     contact = fields.Char()
     email = fields.Char()
     website = fields.Char()
+    image = fields.Binary()
     color = fields.Char()
     established_date = fields.Date()
     school_code = fields.Char()
