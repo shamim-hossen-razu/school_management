@@ -15,6 +15,12 @@
                 </t>
             </xpath>
         </template>
+        <template id="portal_my_home_supplier_registration_breadcrumbs" name="Portal layout : School menu breadcrumbs"
+                  inherit_id="portal.portal_breadcrumbs" priority="25">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+                <li t-if="page_name == 'my_school'" class="breadcrumb-item">School</li>
+            </xpath>
+        </template>
 
         <template id="school_list_view_template">
             <t t-call="portal.portal_layout">

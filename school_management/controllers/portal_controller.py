@@ -13,6 +13,7 @@ class MySchoolPortal(CustomerPortal):
     def my_school(self, **kw):
         schools = request.env['school_management.school'].search([])
         return request.render('school_management.school_list_view_template', {
-            'schools': schools
+            'schools': schools,
+            'page_name': 'my_school',
         })
 
