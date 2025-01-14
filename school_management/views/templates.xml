@@ -43,7 +43,10 @@
                                     <t t-foreach="schools" t-as="school">
                                         <tr>
                                             <td>
-                                                <t t-esc="school.name"/>
+                                                <a t-attf-href="/my/school/#{school.id}">
+                                                    <t t-esc="school.name"/>
+                                                </a>
+
                                             </td>
                                             <td>
                                                 <t t-esc="school.address"/>
