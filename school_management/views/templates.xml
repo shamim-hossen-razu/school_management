@@ -120,6 +120,7 @@
                                                 <button type="button"
                                                         class="btn btn-outline-primary ms-1">Message
                                                 </button>
+                                                 <a t-attf-href="/my/school/print/{{school.id}}" class="fa fa-download">Download</a>
                                             </div>
                                         </div>
                                     </div>

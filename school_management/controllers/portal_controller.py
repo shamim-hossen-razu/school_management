@@ -30,11 +30,12 @@ class MySchoolPortal(CustomerPortal):
         order = searchbar_sortings[sortby]['order']
         school_count = request.env['school_management.school'].search_count([])
         pager = portal_pager(url='/my/school',
-                                      total=school_count,
-                                      page=page, step=5,
-                                      scope=5,
-                                      url_args={'sortby': sortby, 'search_in': search_in, 'search': search})
-        schools = request.env['school_management.school'].search(search_domain, limit=5, offset=pager['offset'], order=order)
+                             total=school_count,
+                             page=page, step=5,
+                             scope=5,
+                             url_args={'sortby': sortby, 'search_in': search_in, 'search': search})
+        schools = request.env['school_management.school'].search(search_domain, limit=5, offset=pager['offset'],
+                                                                 order=order)
         return request.render('school_management.school_list_view_template', {
             'schools': schools,
             'page_name': 'my_school',
@@ -60,3 +61,9 @@ class MySchoolPortal(CustomerPortal):
                                                                                'page_name': 'school_details',
                                                                                'prev_record': f'/my/school/{prev_school_id}' if prev_school_id else False,
                                                                                'next_record': f'/my/school/{next_school_id}' if next_school_id else False})
+
+    @http.route(['/my/school/print/<model("school_management.school"):school_id>'], type='http', auth='user',
+                website=True)
+    def report(self, school_id, **kw):
+        return self._show_report(model=school_id, report_type='pdf',
+                                 report_ref='school_management.school_management_school_report_action', download=True)
