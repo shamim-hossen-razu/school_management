@@ -24,6 +24,9 @@
 
         <template id="school_list_view_template">
             <t t-call="portal.portal_layout">
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">School</t>
+                </t>
                 <div class="container mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-10">

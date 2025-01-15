@@ -1,6 +1,6 @@
-from odoo.addons.portal.controllers.portal import CustomerPortal, pager
+from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 from odoo.http import request
-from odoo import http
+from odoo import http, _
 
 
 class MySchoolPortal(CustomerPortal):
@@ -11,14 +11,31 @@ class MySchoolPortal(CustomerPortal):
         return values
 
     @http.route(['/my/school', '/my/school/page/<int:page>'], type='http', auth='user', website=True)
-    def my_school_list(self, page=1, **kw):
+    def my_school_list(self, page=1, sortby=None, **kw):
+        # add sort by feature
+        searchbar_sortings = {
+            'date': {'label': _('Newest'), 'order': 'create_date desc'},
+            'name': {'label': _('Name'), 'order': 'name'},
+            'established_date': {'label': _('Establish Date'), 'order': 'established_date'},
+        }
+
+        if not sortby:
+            sortby = 'date'
+        order = searchbar_sortings[sortby]['order']
+
         school_count = request.env['school_management.school'].search_count([])
-        pager = request.website.pager(url='/my/school', total=school_count, page=page, step=5, scope=5, url_args={})
-        schools = request.env['school_management.school'].search([], limit=5, offset=pager['offset'])
+        pager = portal_pager(url='/my/school',
+                                      total=school_count,
+                                      page=page, step=5,
+                                      scope=5,
+                                      url_args={'sortby': sortby})
+        schools = request.env['school_management.school'].search([], limit=5, offset=pager['offset'], order=order)
         return request.render('school_management.school_list_view_template', {
             'schools': schools,
             'page_name': 'my_school',
-            'pager': pager
+            'pager': pager,
+            'sortby': sortby,
+            'searchbar_sortings': searchbar_sortings,
         })
 
     @http.route(['/my/school/<int:school_id>'], type='http', auth='user', website=True)
