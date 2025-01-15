@@ -2,6 +2,7 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager
 from odoo.http import request
 from odoo import http
 
+
 class MySchoolPortal(CustomerPortal):
     def _prepare_home_portal_values(self, counters):
         values = super(MySchoolPortal, self)._prepare_home_portal_values(counters)
@@ -22,8 +23,15 @@ class MySchoolPortal(CustomerPortal):
 
     @http.route(['/my/school/<int:school_id>'], type='http', auth='user', website=True)
     def my_school_detail(self, school_id, **kw):
+        # get id of prev and next school of current school
+        school_ids = request.env['school_management.school'].search([]).ids
+        school_index = school_ids.index(school_id)
+        school_count = len(school_ids)
+        prev_school_id = school_ids[school_index - 1] if school_index > 0 else False
+        next_school_id = school_ids[school_index + 1] if school_index < school_count - 1 else False
+
         school = request.env['school_management.school'].search([('id', '=', school_id)])
         return request.render('school_management.school_details_view_portal', {'school': school,
-                                                                               'page_name': 'school_details'})
-
-
+                                                                               'page_name': 'school_details',
+                                                                               'prev_record': f'/my/school/{prev_school_id}' if prev_school_id else False,
+                                                                               'next_record': f'/my/school/{next_school_id}' if next_school_id else False})
