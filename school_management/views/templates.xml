@@ -18,7 +18,17 @@
         <template id="portal_my_home_supplier_registration_breadcrumbs" name="Portal layout : School menu breadcrumbs"
                   inherit_id="portal.portal_breadcrumbs" priority="25">
             <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-                <li t-if="page_name == 'my_school'" class="breadcrumb-item">School</li>
+                <li t-if="page_name == 'my_school'" class="breadcrumb-item">
+                    <a t-att-href="'/my/school'">
+                        <t>My School</t>
+                    </a>
+                </li>
+
+                <li t-if="page_name == 'school_details'" class="breadcrumb-item">
+                    <a t-att-href="'/my/school'">
+                        <t t-esc="school.name"/>
+                    </a>
+                </li>
             </xpath>
         </template>
 
