@@ -11,31 +11,39 @@ class MySchoolPortal(CustomerPortal):
         return values
 
     @http.route(['/my/school', '/my/school/page/<int:page>'], type='http', auth='user', website=True)
-    def my_school_list(self, page=1, sortby=None, **kw):
+    def my_school_list(self, page=1, sortby=None, search=None, search_in='all', **kw):
         # add sort by feature
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
             'name': {'label': _('Name'), 'order': 'name'},
             'established_date': {'label': _('Establish Date'), 'order': 'established_date'},
         }
-
+        if not search_in:
+            search_in = 'name'
+        search_list = {
+            'all': {'label': _('All'), 'input': 'all', 'domain': []},
+            'name': {'label': _('Name'), 'input': 'name', 'domain': [('name', 'ilike', search)]}
+        }
+        search_domain = search_list[search_in]['domain']
         if not sortby:
             sortby = 'date'
         order = searchbar_sortings[sortby]['order']
-
         school_count = request.env['school_management.school'].search_count([])
         pager = portal_pager(url='/my/school',
                                       total=school_count,
                                       page=page, step=5,
                                       scope=5,
-                                      url_args={'sortby': sortby})
-        schools = request.env['school_management.school'].search([], limit=5, offset=pager['offset'], order=order)
+                                      url_args={'sortby': sortby, 'search_in': search_in, 'search': search})
+        schools = request.env['school_management.school'].search(search_domain, limit=5, offset=pager['offset'], order=order)
         return request.render('school_management.school_list_view_template', {
             'schools': schools,
             'page_name': 'my_school',
             'pager': pager,
             'sortby': sortby,
             'searchbar_sortings': searchbar_sortings,
+            'searchbar_inputs': search_list,
+            'search_in': search_in,
+            'search': search,
         })
 
     @http.route(['/my/school/<int:school_id>'], type='http', auth='user', website=True)
