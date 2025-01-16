@@ -42,6 +42,8 @@ class School(models.Model):
     swimming_pool_ids = fields.Many2many('school_management.swimming_pool', 'school_id', string='Swimming Pools')
     location = fields.Char()
     school_type = fields.Selection([('primary', 'Primary'), ('secondary', 'Secondary'), ('higher_secondary', 'Higher Secondary')], default='primary')
+    country_id = fields.Many2one('res.country', 'Country')
+
     def _get_report_base_filename(self):
         return self.name
 

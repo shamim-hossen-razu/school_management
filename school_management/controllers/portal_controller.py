@@ -96,3 +96,7 @@ class MySchoolPortal(CustomerPortal):
     def report(self, school_id, **kw):
         return self._show_report(model=school_id, report_type='pdf',
                                  report_ref='school_management.school_management_school_report_action', download=True)
+
+    @http.route(['/my/school/create'], type='http', auth='user', website=True)
+    def create_school(self, **kw):
+        return request.render('school_management.create_school_form', {'page_name': 'create_school'})
