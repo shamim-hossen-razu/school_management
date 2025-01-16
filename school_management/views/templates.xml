@@ -89,9 +89,13 @@
                                                     <t t-esc="school.email"/>
                                                 </td>
                                                 <td>
-                                                    <a t-att-href="'http://' + school.website" target="_blank">
+                                                    <a t-if="school.website" t-att-href="'http://' + school.website"
+                                                       target="_blank">
                                                         <t t-esc="school.website"/>
                                                     </a>
+                                                    <t t-else="">
+                                                        <span>No website</span>
+                                                    </t>
                                                 </td>
                                             </tr>
                                         </t>
@@ -253,6 +257,24 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="create_school_success_form">
+            <t t-call="portal.portal_layout">
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Create School</t>
+                </t>
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h1 class="text-center mb-4">Create School</h1>
+                            <div class="alert alert-success" role="alert">
+                                School created successfully.
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -42,7 +42,6 @@ class MySchoolPortal(CustomerPortal):
             group_by_school.get('input')
         else:
             group_by_school = ''
-        print("group_by_school: ", group_by_school)
 
         school_count = request.env['school_management.school'].search_count([])
         pager = portal_pager(url='/my/school',
@@ -97,10 +96,15 @@ class MySchoolPortal(CustomerPortal):
         return self._show_report(model=school_id, report_type='pdf',
                                  report_ref='school_management.school_management_school_report_action', download=True)
 
-    @http.route(['/my/school/create'], type='http', auth='user', website=True)
+    @http.route(['/my/school/create'], type='http', auth='user',  methods=['POST', 'GET'], website=True)
     def create_school(self, **kw):
         countries = request.env['res.country'].search([])
-        print(kw)
-        return request.render('school_management.create_school_form',
+        if request.httprequest.method == 'POST':
+            keys = ['name', 'country_id', 'email', 'website', 'address', 'contact', 'image']
+            vals = {key: kw.get(key) for key in keys if kw.get(key)}
+            new_school_id = request.env['school_management.school'].create(vals)
+            if new_school_id:
+                return request.render('school_management.create_school_success_form')
+            return request.render('school_management.create_school_form',
                               {'page_name': 'create_school',
                                'countries': countries})
