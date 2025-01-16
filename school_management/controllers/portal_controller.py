@@ -100,6 +100,7 @@ class MySchoolPortal(CustomerPortal):
     @http.route(['/my/school/create'], type='http', auth='user', website=True)
     def create_school(self, **kw):
         countries = request.env['res.country'].search([])
+        print(kw)
         return request.render('school_management.create_school_form',
                               {'page_name': 'create_school',
                                'countries': countries})

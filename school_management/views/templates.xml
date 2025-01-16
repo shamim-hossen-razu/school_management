@@ -40,6 +40,12 @@
                         <t t-esc="school.name"/>
                     </a>
                 </li>
+
+                <li t-if="page_name == 'create_school'" class="breadcrumb-item">
+                    <a t-att-href="'/my/school'">
+                        <t>My School</t>
+                    </a>
+                </li>
             </xpath>
         </template>
 
@@ -208,6 +214,7 @@
                         <div class="col-md-8">
                             <h1 class="text-center mb-4">Create School</h1>
                             <form action="/my/school/create" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">School Name</label>
                                     <input type="text" class="form-control" id="name" name="name"
