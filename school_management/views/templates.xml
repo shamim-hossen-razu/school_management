@@ -14,6 +14,17 @@
                     <t t-set="config_card" t-value="True"/>
                 </t>
             </xpath>
+
+            <xpath expr="//div[@id='portal_vendor_category']" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon" t-value="'/sale/static/src/img/bag.svg'"/>
+                    <t t-set="title">Create School</t>
+                    <t t-set="placeholder_count" t-value="'school_count'"/>
+                    <t t-set="text">My School</t>
+                    <t t-set="url" t-value="'/my/school/create'"/>
+                    <t t-set="config_card" t-value="True"/>
+                </t>
+            </xpath>
         </template>
         <template id="portal_my_home_supplier_registration_breadcrumbs" name="Portal layout : School menu breadcrumbs"
                   inherit_id="portal.portal_breadcrumbs" priority="25">
