@@ -212,6 +212,18 @@
                                     <label for="name" class="form-label">School Name</label>
                                     <input type="text" class="form-control" id="name" name="name"/>
                                 </div>
+<!--                                # add country_id field of type selection-->
+                                <div class="mb-3">
+                                    <label for="country_id" class="form-label">Country</label>
+                                    <select class="form-select" id="country_id" name="country_id">
+                                        <option value="">Select Country</option>
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country.id">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="email" name="email" />
