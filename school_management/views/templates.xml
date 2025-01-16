@@ -216,6 +216,20 @@
                 <div class="container mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
+                            <t t-foreach="error_list" t-as="error">
+                                <div class="alert alert-danger" role="alert">
+                                    <h4 class="alert-heading">Error!</h4>
+                                    <t t-out="error"/>
+                                </div>
+                            </t>
+                            <t t-if="success_list">
+                                <div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading">Success!</h4>
+                                    <t t-foreach="success_list" t-as="success">
+                                        <t t-out="success"/>
+                                    </t>
+                                </div>
+                            </t>
                             <h1 class="text-center mb-4">Create School</h1>
                             <form action="/my/school/create" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>

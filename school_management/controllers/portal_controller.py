@@ -98,13 +98,27 @@ class MySchoolPortal(CustomerPortal):
 
     @http.route(['/my/school/create'], type='http', auth='user',  methods=['POST', 'GET'], website=True)
     def create_school(self, **kw):
+        error_list = []
+        success_list = []
+
         countries = request.env['res.country'].search([])
         if request.httprequest.method == 'POST':
             keys = ['name', 'country_id', 'email', 'website', 'address', 'contact', 'image']
             vals = {key: kw.get(key) for key in keys if kw.get(key)}
+            if not vals.get('name'):
+                error_list.append('Please enter school name')
+            if not vals.get('country_id'):
+                error_list.append('Please select country')
+            if not vals.get('email'):
+                error_list.append('Please enter email')
+
             new_school_id = request.env['school_management.school'].create(vals)
             if new_school_id:
-                return request.render('school_management.create_school_success_form')
-            return request.render('school_management.create_school_form',
-                              {'page_name': 'create_school',
-                               'countries': countries})
+                success_list.append('School created successfully')
+
+        return request.render('school_management.create_school_form',
+                          {'page_name': 'create_school',
+                           'countries': countries,
+                           'error_list': error_list,
+                           'success_list': success_list
+                           })
