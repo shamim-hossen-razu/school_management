@@ -1,6 +1,8 @@
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 from odoo.http import request
 from odoo import http, _
+from odoo.tools import groupby as groupbyelem
+from operator import itemgetter
 
 
 class MySchoolPortal(CustomerPortal):
@@ -11,7 +13,7 @@ class MySchoolPortal(CustomerPortal):
         return values
 
     @http.route(['/my/school', '/my/school/page/<int:page>'], type='http', auth='user', website=True)
-    def my_school_list(self, page=1, sortby=None, search=None, search_in='all', **kw):
+    def my_school_list(self, page=1, sortby=None, search=None, search_in='all', groupby="none", **kw):
         # add sort by feature
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
@@ -28,16 +30,40 @@ class MySchoolPortal(CustomerPortal):
         if not sortby:
             sortby = 'date'
         order = searchbar_sortings[sortby]['order']
+        if not groupby or groupby == 'none':
+            groupby = 'school_type'
+
+        groupby_list = {
+            'location': {'label': _('Location'), 'input': 'location'},
+            'school_type': {'label': _('School Type'), 'input': 'school_type'},
+        }
+        group_by_school = groupby_list.get(groupby, {})
+        if groupby in ('location', 'school_type'):
+            group_by_school.get('input')
+        else:
+            group_by_school = ''
+        print("group_by_school: ", group_by_school)
+
         school_count = request.env['school_management.school'].search_count([])
         pager = portal_pager(url='/my/school',
                              total=school_count,
                              page=page, step=5,
                              scope=5,
-                             url_args={'sortby': sortby, 'search_in': search_in, 'search': search})
+                             url_args={'sortby': sortby, 'search_in': search_in, 'search': search,
+                                       'groupby': groupby})
         schools = request.env['school_management.school'].search(search_domain, limit=5, offset=pager['offset'],
                                                                  order=order)
+
+        if groupby_list[groupby]['input']:
+            school_group_list = [{group_by_school['input']: i, 'schools': list(j)} for i, j in groupbyelem(schools, itemgetter(group_by_school['input']))]
+        else:
+            school_group_list = [{'schools': schools}]
+        print("school_group_list: ", school_group_list)
+        print("school_group_list: type ", type(school_group_list))
+        print("school: type ", type(schools))
         return request.render('school_management.school_list_view_template', {
-            'schools': schools,
+            # 'schools': schools,
+            'group_schools': school_group_list,
             'page_name': 'my_school',
             'pager': pager,
             'sortby': sortby,
@@ -45,6 +71,9 @@ class MySchoolPortal(CustomerPortal):
             'searchbar_inputs': search_list,
             'search_in': search_in,
             'search': search,
+            'default_url': '/my/school',
+            'groupby': groupby,
+            'searchbar_groupby': groupby_list,
         })
 
     @http.route(['/my/school/<int:school_id>'], type='http', auth='user', website=True)

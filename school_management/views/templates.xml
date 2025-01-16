@@ -43,41 +43,44 @@
                             <h1 class="text-center mb-4">My School</h1>
 
                             <t t-call="portal.portal_table">
-                                <thead style="background-color: #4A90E2; color: #fff;">
-                                    <tr>
-                                        <th style="width: 20%;">Name</th>
-                                        <th style="width: 30%;">Address</th>
-                                        <th style="width: 15%;">Contact</th>
-                                        <th style="width: 20%;">Email</th>
-                                        <th style="width: 15%;">Website</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <t t-foreach="schools" t-as="school">
+                                <t t-foreach="group_schools" t-as="schools">
+                                    <thead style="background-color: #4A90E2; color: #fff;">
                                         <tr>
-                                            <td>
-                                                <a t-attf-href="/my/school/#{school.id}">
-                                                    <t t-esc="school.name"/>
-                                                </a>
-
-                                            </td>
-                                            <td>
-                                                <t t-esc="school.address"/>
-                                            </td>
-                                            <td>
-                                                <t t-esc="school.contact"/>
-                                            </td>
-                                            <td>
-                                                <t t-esc="school.email"/>
-                                            </td>
-                                            <td>
-                                                <a t-att-href="'http://' + school.website" target="_blank">
-                                                    <t t-esc="school.website"/>
-                                                </a>
-                                            </td>
+                                            <th style="width: 20%;">Name</th>
+                                            <th style="width: 30%;">Address</th>
+                                            <th style="width: 15%;">Contact</th>
+                                            <th style="width: 20%;">Email</th>
+                                            <th style="width: 15%;">Website</th>
                                         </tr>
-                                    </t>
-                                </tbody>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="schools['schools']" t-as="school">
+                                            <tr>
+                                                <td>
+                                                    <a t-attf-href="/my/school/#{school.id}">
+                                                        <t t-esc="school.name"/>
+                                                    </a>
+
+                                                </td>
+                                                <td>
+                                                    <t t-esc="school.address"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="school.contact"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="school.email"/>
+                                                </td>
+                                                <td>
+                                                    <a t-att-href="'http://' + school.website" target="_blank">
+                                                        <t t-esc="school.website"/>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </t>
+
                             </t>
                         </div>
                     </div>
@@ -120,7 +123,9 @@
                                                 <button type="button"
                                                         class="btn btn-outline-primary ms-1">Message
                                                 </button>
-                                                 <a t-attf-href="/my/school/print/{{school.id}}" class="fa fa-download">Download</a>
+                                                <a t-attf-href="/my/school/print/{{school.id}}" class="fa fa-download">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -40,7 +40,8 @@ class School(models.Model):
     active = fields.Boolean(default=True)
     playground_ids = fields.Many2many('school_management.playground', string='Playgrounds')
     swimming_pool_ids = fields.Many2many('school_management.swimming_pool', 'school_id', string='Swimming Pools')
-
+    location = fields.Char()
+    school_type = fields.Selection([('primary', 'Primary'), ('secondary', 'Secondary'), ('higher_secondary', 'Higher Secondary')], default='primary')
     def _get_report_base_filename(self):
         return self.name
 
