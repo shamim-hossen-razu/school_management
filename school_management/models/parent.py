@@ -19,3 +19,9 @@ class Parent(models.Model):
             'url': 'contactus',
             'target': 'new',
         }
+
+    def cron_birthday_alert(self):
+        today = fields.Date.today()
+        for record in self.search([]):
+            if record.date_of_birth and record.date_of_birth.strftime('%m-%d') == today.strftime('%m-%d'):
+                record.message_post(body='Happy Birthday!', subject='Birthday Alert')
