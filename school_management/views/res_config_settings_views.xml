@@ -10,9 +10,12 @@
                 <app data-string="School Management" string="School Management" name="school_management">
 
                     <block title="Seat Capacity" name="capacity_setting_container">
-                        <setting id="seat_capacity" help="Set capacity on Standard">
+                        <setting id="std_seat_capacity" help="Seat capacity on Standard">
                             <field name="number_of_seat_per_standard"/>
+                        </setting>
 
+                        <setting id="section_seat_capacity" help="Seat capacity on Section">
+                            <field name="number_of_seats_per_section"/>
                         </setting>
                     </block>
                 </app>
