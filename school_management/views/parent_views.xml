@@ -6,7 +6,8 @@
         <field name="name">Parent</field>
         <field name="res_model">school_management.parent</field>
         <field name="view_mode">kanban,graph,form,tree,pivot</field>
-        <field name="target">new</field>
+        <field name="binding_model_id" ref="school_management.model_school_management_student"/>
+        <field name="target">current</field>
     </record>
 
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
