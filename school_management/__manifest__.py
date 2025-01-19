@@ -33,6 +33,7 @@
         'views/playground.xml',
         'views/school.xml',
         'views/parent_views.xml',
+        'views/res_config_settings_views.xml',
         'views/menus.xml',
         'views/sale_order_line_inherited.xml',
         'report/sale_report_template_inherited.xml',

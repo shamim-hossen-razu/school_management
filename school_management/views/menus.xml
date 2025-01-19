@@ -14,6 +14,8 @@
                 action="school_management_playground_action" sequence="50"/>
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
                 action="school_management_parent_action" sequence="60"/>
+    <menuitem id="school_management_setting_menu" name="Setting" parent="school_management_menu"
+                action="school_management_setting_action" sequence="70"/>
 
 
 

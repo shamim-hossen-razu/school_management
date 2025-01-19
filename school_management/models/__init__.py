@@ -9,4 +9,6 @@ from . import school
 from . import course
 from . import result
 from . import inherited_sales
+from . import res_config_setting
+
 
