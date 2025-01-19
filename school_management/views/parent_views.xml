@@ -5,7 +5,7 @@
     <record id="school_management_parent_action" model="ir.actions.act_window">
         <field name="name">Parent</field>
         <field name="res_model">school_management.parent</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban,form,tree</field>
     </record>
 
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
