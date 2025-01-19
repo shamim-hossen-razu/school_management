@@ -62,6 +62,8 @@
         <field name="binding_model_id" ref="school_management.model_school_management_student"/>
         <field name="binding_type">action</field>
         <field name="target">current</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+               (0, 0, {'view_mode': 'form', 'view_id': ref('school_management.parent_form_regular_view')})]"/>
     </record>
 
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
