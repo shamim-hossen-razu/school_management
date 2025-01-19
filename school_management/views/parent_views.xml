@@ -1,80 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="parent_form_general_view" model="ir.ui.view">
+    <record id="parent_form_view" model="ir.ui.view">
         <field name="name">Parent Form</field>
         <field name="model">school_management.parent</field>
-        <field name="priority" eval="13"/>
         <field name="arch" type="xml">
             <form string="Parent">
                 <sheet>
                     <group>
                         <field name="name"/>
                         <field name="email"/>
+                        <field name="annual_income"/>
                     </group>
-                    <notebook>
-                        <page string="Children">
-                            <field name="child_ids">
-                                <tree>
-                                    <field name="name"/>
-                                    <field name="age"/>
-                                    <field name="standard"/>
-                                </tree>
-                            </field>
-                        </page>
-
-                    </notebook>
                 </sheet>
+                <xpath expr="//sheet" position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+                </xpath>
             </form>
         </field>
     </record>
-
-    <record id="parent_form_regular_view" model="ir.ui.view">
-        <field name="name">Parent Form Regular</field>
-        <field name="model">school_management.parent</field>
-        <field name="priority" eval="15"/>
-        <field name="arch" type="xml">
-            <form string="Parent">
-                <sheet>
-                    <header>
-                        <button name="url_action" string="Go To Url" type="object"/>
-                    </header>
-                    <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="email"/>
-                        </group>
-                        <group>
-                            <field name="occupation"/>
-                            <field name="age"/>
-                        </group>
-                    </group>
-
-                </sheet>
-            </form>
-        </field>
-    </record>
-
 
     <!-- only required field to define window actions-->
     <!-- Though type was a required field but it is redefined with default value-->
     <record id="school_management_parent_action" model="ir.actions.act_window">
         <field name="name">Parent</field>
         <field name="res_model">school_management.parent</field>
-        <field name="view_mode">form</field>
-        <field name="res_id">1</field>
-        <field name="binding_model_id" ref="school_management.model_school_management_student"/>
-        <field name="binding_type">action</field>
-        <field name="target">current</field>
-        <field name="view_id" ref="parent_form_regular_view"/>
-<!--        <field name="view_ids" eval="[(5, 0, 0),-->
-<!--               (0, 0, {'view_mode': 'form', 'view_id': ref('school_management.parent_form_regular_view')})]"/>-->
+        <field name="view_mode">tree,form</field>
     </record>
 
-<!--    <record model="ir.actions.act_window.view" id="parent_form_special">-->
-<!--        <field name="view_mode">form</field>-->
-<!--        <field name="view_id" ref="parent_form_general_view"/>-->
-<!--        <field name="act_window_id" ref="school_management_parent_action"/>-->
-<!--    </record>-->
+
+    <record model="ir.actions.server" id="action_greetings_to_all_parents">
+        <field name="name">Annual Income Check</field>
+        <field name="model_id" ref="school_management.model_school_management_parent"/>
+        <field name="binding_model_id" ref="school_management.model_school_management_parent"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.annual_income > 50000:
+                    record.message_post(body="Annual income is above 50,000.")
+                else:
+                    record.message_post(body="Annual income is below or equal to 50,000.")
+        </field>
+    </record>
 
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
               action="school_management_parent_action" sequence="60"/>

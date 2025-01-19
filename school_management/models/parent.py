@@ -4,7 +4,7 @@ from odoo import models, fields
 class Parent(models.Model):
     _name = 'school_management.parent'
     _description = 'Parent'
-    _inherit = 'base.person'
+    _inherit = ['base.person', 'mail.thread', 'mail.activity.mixin']
     _rec_names_search = ['name', 'nick_name']
 
     occupation = fields.Selection([('Service', 'Service'), ('Business', 'Business'), ('Housewife', 'Housewife'),
