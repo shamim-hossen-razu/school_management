@@ -4,8 +4,8 @@
     <!-- Though type was a required field but it is redefined with default value-->
     <record id="school_management_parent_action" model="ir.actions.act_window">
         <field name="name">Parent</field>
-        <field name="res_model">school_management.parent</field>
-        <field name="view_mode">graph,kanban,form,tree,pivot</field>
+        <field name="res_model">school_management.student</field>
+        <field name="view_mode">kanban,graph,form,tree,pivot</field>
     </record>
 
     <menuitem id="school_management_parent_menu" name="Parent" parent="school_management_menu"
