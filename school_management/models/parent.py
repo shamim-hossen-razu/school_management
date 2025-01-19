@@ -16,6 +16,6 @@ class Parent(models.Model):
     def url_action(self):
         return {
             'type': 'ir.actions.act_url',
-            'url': 'https://www.odoo.com',
+            'url': 'contactus',
             'target': 'new',
         }
