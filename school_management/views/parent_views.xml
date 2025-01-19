@@ -39,10 +39,12 @@
         <field name="state">code</field>
         <field name="code">
             for record in records:
-                if record.annual_income > 50000:
-                    record.message_post(body="Annual income is above 50,000.")
-                else:
-                    record.message_post(body="Annual income is below or equal to 50,000.")
+                action = {
+                    "type": "ir.actions.act_window",
+                    "view_mode": "form",
+                    "res_model": record._name,
+                    "res_id": record.id,
+                }
         </field>
     </record>
 
