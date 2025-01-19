@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="parent_form_general_view" model="ir.ui.view">
+        <field name="name">Parent Form</field>
+        <field name="model">school_management.parent</field>
+        <field name="priority" eval="13"/>
+        <field name="arch" type="xml">
+            <form string="Parent">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                    </group>
+                    <notebook>
+                        <page string="Children">
+                            <field name="child_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="age"/>
+                                    <field name="standard"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="parent_form_regular_view" model="ir.ui.view">
+        <field name="name">Parent Form Regular</field>
+        <field name="model">school_management.parent</field>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <form string="Parent">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="occupation"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
     <!-- only required field to define window actions-->
     <!-- Though type was a required field but it is redefined with default value-->
     <record id="school_management_parent_action" model="ir.actions.act_window">
