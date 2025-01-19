@@ -12,3 +12,10 @@ class Parent(models.Model):
     annual_income = fields.Float()
     child_ids = fields.One2many('school_management.student', 'parent_id', string='Children')
     nick_name = fields.Char()
+
+    def url_action(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': 'https://www.odoo.com',
+            'target': 'new',
+        }

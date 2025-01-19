@@ -35,6 +35,9 @@
         <field name="arch" type="xml">
             <form string="Parent">
                 <sheet>
+                    <header>
+                        <button name="url_action" string="Go To Url" type="object"/>
+                    </header>
                     <group>
                         <group>
                             <field name="name"/>
