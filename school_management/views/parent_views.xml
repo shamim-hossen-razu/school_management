@@ -7,7 +7,7 @@
         <field name="res_model">school_management.parent</field>
         <field name="view_mode">kanban,graph,form,tree,pivot</field>
         <field name="binding_model_id" ref="school_management.model_school_management_student"/>
-        <field name="binding_type">report</field>
+        <field name="binding_type">action</field>
         <field name="target">current</field>
     </record>
 
