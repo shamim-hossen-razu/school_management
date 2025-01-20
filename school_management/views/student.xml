@@ -19,7 +19,7 @@
                                 <field name="date_of_birth"/>
                             </group>
                             <group>
-                                <field name="school_id"/>
+                                <field name="school_id" context="{'active_test':False}"/>
                                 <field name="standard"/>
                                 <field name="roll_number"/>
                                 <field name="section"/>

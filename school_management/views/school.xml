@@ -13,6 +13,10 @@
 
                         <button name="print_school_student_count_report" string="Student Count Report" type="object"
                                 class="btn-primary"/>
+                        <field name="active" invisible="1"/>
+
+                        <button string="Restore" name="toggle_active" type="object" invisible="active" data-hotkey="x"/>
+
                     </header>
                     <group>
                         <group>
