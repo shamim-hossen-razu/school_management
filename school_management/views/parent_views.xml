@@ -13,6 +13,7 @@
                         <field name="name"/>
                         <field name="email"/>
                         <field name="annual_income"/>
+                        <field name="res_partner_id" context="{'show_address': 1} "/>
                     </group>
                 </sheet>
                 <xpath expr="//sheet" position="after">

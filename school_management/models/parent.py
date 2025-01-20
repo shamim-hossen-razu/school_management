@@ -17,6 +17,7 @@ class Parent(models.Model):
         required=True, copy=False, readonly=True,
         index='trigram',
         default=lambda self: _('New'))
+    res_partner_id = fields.Many2one('res.partner', string='Partner')
 
     @api.model
     def create(self, vals):
