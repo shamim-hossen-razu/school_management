@@ -25,13 +25,29 @@
         </field>
     </record>
 
+    <record id="parent_search_view" model="ir.ui.view">
+        <field name="name">Parent Search</field>
+        <field name="model">school_management.parent</field>
+        <field name="arch" type="xml">
+            <search string="Parent">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="annual_income"/>
+                <filter name="filter_annual_income" string="Annual Income" domain="[('annual_income', '>', 100000)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <!-- only required field to define window actions-->
     <!-- Though type was a required field but it is redefined with default value-->
     <record id="school_management_parent_action" model="ir.actions.act_window">
         <field name="name">Parent</field>
         <field name="res_model">school_management.parent</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'default_annual_income': '100000'}</field>
+        <field name="context">{'default_annual_income': '100000', 'search_default_filter_annual_income': 1}</field>
     </record>
 
 
