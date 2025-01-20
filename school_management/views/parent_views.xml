@@ -31,6 +31,7 @@
         <field name="name">Parent</field>
         <field name="res_model">school_management.parent</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'default_annual_income': '100000'}</field>
     </record>
 
 
