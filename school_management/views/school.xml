@@ -117,5 +117,6 @@
         <field name="name">School</field>
         <field name="res_model">school_management.school</field>
         <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'active_test': False}</field>
     </record>
 </odoo>
