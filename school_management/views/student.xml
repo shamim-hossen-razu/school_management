@@ -50,6 +50,31 @@
             </field>
         </record>
 
+        <record id="school_management_student_view_form_v2" model="ir.ui.view">
+            <field name="name">school.management.student.view.form.v2</field>
+            <field name="model">school_management.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                                <field name="date_of_birth"/>
+                            </group>
+                            <group>
+                                <field name="school_id" context="{'active_test':False}"/>
+                                <field name="standard"/>
+                                <field name="roll_number"/>
+                                <field name="section"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
         <record id="school_management_student_view_tree" model="ir.ui.view">
             <field name="name">school.management.student.view.tree</field>
             <field name="model">school_management.student</field>
@@ -57,6 +82,18 @@
                 <tree string="School Student">
                     <field name="name"/>
                     <field name="age"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="school_management_student_view_tree_v2" model="ir.ui.view">
+            <field name="name">school.management.student.view.tree.v2</field>
+            <field name="model">school_management.student</field>
+            <field name="arch" type="xml">
+                <tree string="School Student">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="standard"/>
                 </tree>
             </field>
         </record>

@@ -34,7 +34,9 @@
                     </group>
                     <notebook>
                         <page string="Students">
-                            <field name="student_ids"/>
+                            <field name="student_ids"
+                            context="{'tree_view_ref':'school_management.school_management_student_view_tree_v2',
+                                        'form_view_ref':'school_management.school_management_student_view_form_v2'}"/>
                         </page>
                         <page string="Teachers">
                             <field name="teacher_ids"/>
