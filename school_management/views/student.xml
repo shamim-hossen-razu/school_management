@@ -10,6 +10,10 @@
                     <header>
                         <button name="send_email" string="Send By Email" type="object" class="btn-primary"/>
                     </header>
+
+                    <header>
+                        <button name="custom_log" string="Log Test" type="object" class="btn-primary"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
@@ -46,6 +50,12 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <xpath expr="//sheet" position="after">
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" groups="base.group_user"/>
+                            <field name="message_ids"/>
+                        </div>
+                    </xpath>
                 </form>
             </field>
         </record>

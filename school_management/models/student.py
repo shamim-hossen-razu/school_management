@@ -39,9 +39,14 @@ class Student(models.Model):
                 file_size = file_size.decode('utf-8')
                 file_size = file_size.split(' ')
                 if (file_size[1] == 'Kb' and float(file_size[0]) > 1024) or (
-                        file_size[1] == 'Mb' and float(file_size[0]) > 1):
-                    raise UserError('Image size cannot exceed 1 MB')
+                        file_size[1] == 'Mb' and float(file_size[0]) > 10):
+                    raise UserError('Image size cannot exceed 10 MB')
         return super(Student, self).write(vals)
+
+    def custom_log(self):
+        self.message_post(body='Custom log message')
+        print(self.env.context)
+        print(self._context)
 
     @api.model
     def _assign_group(self, *args, **kwargs):
