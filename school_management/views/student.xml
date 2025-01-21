@@ -45,7 +45,14 @@
                         </group>
                         <notebook>
                             <page string="Results">
-                                <field name="result_ids"/>
+                                <field name="result_ids">
+                                    <tree editable="bottom">
+                                        <field name="course_id"/>
+                                        <field name="grade"/>
+                                        <field name="marks"/>
+                                        <field name="result_date"/>
+                                    </tree>
+                                </field>
 
                             </page>
                         </notebook>
