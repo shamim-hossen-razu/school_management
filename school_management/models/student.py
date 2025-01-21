@@ -77,5 +77,11 @@ class Student(models.Model):
     def send_email(self):
         self.env.ref('school_management.student_email_template').send_mail(self.id)
 
+    def action_update_data(self):
+        # i have to return this action by searching with ref :student_data_def action_update_data(self):
+        action = self.env.ref('school_management.student_data_update_wizard_action').read()[0]
+        print(type(action))
+        print(action)
+        return self.env.ref('school_management.student_data_update_wizard_action').read()[0]
 
 

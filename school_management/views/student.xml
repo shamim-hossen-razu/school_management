@@ -91,6 +91,7 @@
             <field name="arch" type="xml">
                 <tree string="School Student">
                     <field name="name"/>
+                    <field name="weight_in_kg"/>
                     <field name="age"/>
                 </tree>
             </field>
@@ -118,6 +119,18 @@
                 </search>
             </field>
         </record>
+
+
+        <record id="student_data_update_server_action" model="ir.actions.server">
+            <field name="name">Update Student Data</field>
+            <field name="model_id" ref="school_management.model_school_management_student"/>
+            <field name="binding_model_id" ref="school_management.model_school_management_student"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.action_update_data()
+            </field>
+        </record>
+
 
 
 

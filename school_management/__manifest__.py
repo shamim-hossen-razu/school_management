@@ -45,6 +45,7 @@
         'report/sale_order_proposal_report_action.xml',
         # 'report/inherited_templates.xml',
         'views/templates.xml',
+        'wizard/student_data_update_wizard.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [

@@ -7,3 +7,4 @@ school_management_result,access_result,model_school_management_result,base.group
 school_management_school,access_school,model_school_management_school,base.group_user,1,1,1,1
 school_management_playground,access_playground,model_school_management_playground,base.group_user,1,1,1,1
 school_management_swimming_pool,access_swimming_pool,model_school_management_swimming_pool,base.group_user,1,1,1,1
+school_management_data_update,access_student_data.update_wizard,model_student_data_update_wizard,base.group_user,1,1,1,1
