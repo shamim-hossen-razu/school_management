@@ -32,21 +32,16 @@ class Student(models.Model):
         if self.weight_in_kg:
             self.weight_in_pounds = self.weight_in_kg * 2.20462
 
-    # This method is invoked by the unlink method while deleting a record of this model
-    # @api.ondelete(at_uninstall=False)
-    # def _unlink_if_no_result(self):
-    #
-    #     x = self._read_group([('standard', '=', 9)], groupby=['section'], aggregates=['age:sum'],
-    #                         having=[('age:sum', '>', 15)], offset=0, limit=None, order=None)
-    #
-    #     y = self.read_group([('standard', '=', 9)], fields=['age:sum'], groupby=['section'], offset=0, limit=None)
-    #
-    #     for record in self:
-    #
-    #         z = record.search_fetch([('age', '>', 15)], ['name', 'age'])
-    #
-    #         if record.school_id:
-    #             raise UserError('Cannot delete a student with school.')
+    def write(self, vals):
+        if self.student_image:
+            file_size = self.with_context(bin_size=True).student_image
+            if file_size:
+                file_size = file_size.decode('utf-8')
+                file_size = file_size.split(' ')
+                if (file_size[1] == 'Kb' and float(file_size[0]) > 1024) or (
+                        file_size[1] == 'Mb' and float(file_size[0]) > 1):
+                    raise UserError('Image size cannot exceed 1 MB')
+        return super(Student, self).write(vals)
 
     @api.model
     def _assign_group(self, *args, **kwargs):

@@ -36,7 +36,7 @@
                                 <field name="parent_id"/>
                                 <field name="active"/>
                                 <field name="parent_name"/>
-                                <field name="student_image" widget="image"/>
+                                <field name="student_image"/>
                             </group>
                         </group>
                         <notebook>
