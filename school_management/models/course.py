@@ -60,5 +60,15 @@ class Course(models.Model):
         context = self.env.context
         print('Context', context)
         result_ids = context.get('result_ids', [])
-        print('Courses', result_ids)
+        result_model = self.env['school_management.result']
+        course_ids = []
+        if result_ids:
+            results = result_model.browse(result_ids)
+            print('Results', results)
+            for result in results:
+                if result.course_id:
+                    course_ids.append((result.course_id.id, result.course_id.name))
+        print('Results', result_ids)
+        print('Courses', course_ids)
         return res
+
