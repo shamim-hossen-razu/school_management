@@ -58,7 +58,7 @@ class Course(models.Model):
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         res = super(Course, self).name_search(name=name, args=args, operator=operator, limit=limit)
         context = self.env.context
-        print('Context', context)
+        # print('Context', context)
         result_ids = context.get('result_ids', [])
         result_model = self.env['school_management.result']
         course_ids = []
@@ -68,7 +68,10 @@ class Course(models.Model):
             for result in results:
                 if result.course_id:
                     course_ids.append((result.course_id.id, result.course_id.name))
-        print('Results', result_ids)
         print('Courses', course_ids)
+        # we will filter the course_ids from the res
+        print('Before Filtered Courses', res)
+        res = [course for course in res if course[0] not in [course_id[0] for course_id in course_ids]]
+        print('After Filtered Courses', res)
         return res
 
