@@ -46,8 +46,8 @@
                         <notebook>
                             <page string="Results">
                                 <field name="result_ids">
-                                    <tree editable="bottom">
-                                        <field name="course_id"/>
+                                    <tree editable="top">
+                                        <field name="course_id" context="{'result_ids': parent.result_ids}"/>
                                         <field name="grade"/>
                                         <field name="marks"/>
                                         <field name="result_date"/>

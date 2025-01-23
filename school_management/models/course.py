@@ -53,3 +53,12 @@ class Course(models.Model):
 
         # Call the super method to perform the write operation
         return super(Course, self).write(vals)
+
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        res = super(Course, self).name_search(name=name, args=args, operator=operator, limit=limit)
+        context = self.env.context
+        print('Context', context)
+        result_ids = context.get('result_ids', [])
+        print('Courses', result_ids)
+        return res
