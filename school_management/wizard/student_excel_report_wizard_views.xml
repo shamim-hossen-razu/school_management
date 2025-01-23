@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_excel_report_wizard_form" model="ir.ui.view">
+        <field name="name">student.excel.report.wizard.form</field>
+        <field name="model">student.excel.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Student Excel Report Wizard" create="false" edit="false" delete="false">
+                <div class="no-print">
+                    <group class="col-md-4">
+                        <field name="student_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'
+                               groups="base.group_user"/>
+                    </group>
+
+                    <button name="student_report" string="Submit" type="object"
+                            class="oe_highlight"/>
+                    <span>OR</span>
+                    <button name="student_report_pdf" string="PDF Print" type="object"
+                            class="oe_highlight"/>
+
+                    <span>OR</span>
+                    <button name="student_report_excel" string="Excel Download" type="object"
+                            class="oe_highlight"/>
+                </div>
+                <field name="preview"/>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="student_excel_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Student Excel Report Wizard</field>
+        <field name="res_model">student.excel.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="student_excel_report_wizard_form"/>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="menu_student_excel_report_wizard"
+              name="Student Excel Report Wizard"
+              parent="school_management_menu"
+              action="student_excel_report_wizard_action"/>
+</odoo>

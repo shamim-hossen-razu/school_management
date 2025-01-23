@@ -43,6 +43,7 @@
         'views/email_templates.xml',
         'report/sale_order_proposal_templates.xml',
         'report/sale_order_proposal_report_action.xml',
+        'wizard/student_excel_report_wizard_views.xml',
         # 'report/inherited_templates.xml',
         'views/templates.xml',
         'wizard/student_data_update_wizard.xml',
