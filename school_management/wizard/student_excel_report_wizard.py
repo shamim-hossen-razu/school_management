@@ -9,10 +9,38 @@ class StudentExcelReportWizard(models.TransientModel):
     preview = fields.Html(string='HTML Content', readonly=True)
 
     def student_report(self):
-        pass
+        html = self.prepare_student_report()
+        if html:
+            self.write({'preview': html})
+
 
     def student_report_pdf(self):
         pass
 
     def student_report_excel(self):
         pass
+
+    def prepare_student_report(self):
+        if self.student_id:
+            student = self.student_id
+            html = f"""
+                <table>
+                    <tr>
+                        <td>Student Name: </td>
+                        <td>{student.name or 'No Name'}</td>
+                    </tr>
+                    <tr>
+                        <td>Student Roll: </td>
+                        <td>{student.roll_number or 'No roll Number'}</td>
+                    </tr>
+                    <tr>
+                        <td>Student Class: </td>
+                        <td>{student.standard or ' No Standard'}</td>
+                    </tr>
+                    <tr>
+                        <td>Student Section: </td>
+                        <td>{student.section or 'No section'}</td>
+                    </tr>
+            </table>
+            """
+            return html
