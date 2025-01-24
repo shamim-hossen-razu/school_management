@@ -1,4 +1,8 @@
-from odoo import api, fields, models, _
+from odoo import api, exceptions, fields, models, _
+from . import utility
+import xlsxwriter
+import io
+import base64
 
 
 class StudentExcelReportWizard(models.TransientModel):
@@ -11,33 +15,58 @@ class StudentExcelReportWizard(models.TransientModel):
 
     def student_report(self):
         student_results = self.prepare_student_result() or "Nothing to show"
-        table = "<table border='1'>"
-        table += "<tr>"
-        table += "<th>course id Name</th>"
-        table += "<th>grade</th>"
-        table += "<th>marks</th>"
-        table += "<th>result_date</th>"
-        table += "</tr>"
-        if student_results:
-            for result in student_results:
-                table += "<tr>"
-                table += f"<td>{result['course_id']}</td>"
-                table += f"<td>{result['grade']}</td>"
-                table += f"<td>{result['marks']}</td>"
-                table += f"<td>{result['result_date']}</td>"
-                table += "</tr>"
-        table += "</table>"
+        table = utility.create_styled_table(student_results)
         self.write({
             'preview': table
         })
-
-
 
     def student_report_pdf(self):
         pass
 
     def student_report_excel(self):
-        pass
+        result = self.prepare_student_result()
+        if result:
+            """ Generate student report in Excel format """
+            row = 0
+            # Generate File name format
+            filename = 'Student Report' + '.xlsx'
+
+            # Create a workbook and add a worksheet.
+            output = io.BytesIO()
+            workbook = xlsxwriter.Workbook(output, {'in_memory': True})
+            worksheet = workbook.add_worksheet('Student Report')
+
+            # Set column widths
+            worksheet.set_column(0, 0, 20)  # Course ID
+            worksheet.set_column(1, 1, 10)  # Grade
+            worksheet.set_column(2, 2, 10)  # Marks
+            worksheet.set_column(3, 3, 20)  # Result Date
+
+            # Write data to the worksheet
+            for res in result:
+                worksheet.write(row, 0, res['course_id'])
+                worksheet.write(row, 1, res['grade'])
+                worksheet.write(row, 2, res['marks'])
+                worksheet.write(row, 3, res['result_date'])
+                row += 1
+
+            workbook.close()
+            output.seek(0)
+            export_id = self.env['excel.report.out'].create(
+                {'excel_file': base64.encodebytes(output.getvalue()), 'file_name': filename})
+            output.close()
+
+            return {
+                'name': 'Student Report',
+                'view_mode': 'form',
+                'res_id': export_id.id,
+                'res_model': 'excel.report.out',
+                'view_type': 'form',
+                'type': 'ir.actions.act_window',
+                'target': 'new',
+            }
+        else:
+            raise exceptions.ValidationError(_('Date is not selected!'))
 
     def prepare_student_result(self):
         if self.student_id:
