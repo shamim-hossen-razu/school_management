@@ -12,7 +12,7 @@ def create_styled_table(student_results):
     if student_results:
         for result in student_results:
             table += f"<tr style='{row_style}'>"
-            table += f"<td>{result['course_id']}</td>"
+            table += f"<td>{result['course_name']}</td>"
             table += f"<td>{result['grade']}</td>"
             table += f"<td>{result['marks']}</td>"
             table += f"<td>{result['result_date']}</td>"

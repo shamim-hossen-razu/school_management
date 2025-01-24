@@ -3,6 +3,7 @@ from . import utility
 import xlsxwriter
 import io
 import base64
+from datetime import datetime
 
 
 class StudentExcelReportWizard(models.TransientModel):
@@ -42,12 +43,20 @@ class StudentExcelReportWizard(models.TransientModel):
             worksheet.set_column(2, 2, 10)  # Marks
             worksheet.set_column(3, 3, 20)  # Result Date
 
+            # Write headers to the worksheet
+            worksheet.write(0, 0, 'Course ID Name')
+            worksheet.write(0, 1, 'Grade')
+            worksheet.write(0, 2, 'Marks')
+            worksheet.write(0, 3, 'Result Date')
+
             # Write data to the worksheet
+            row = 1
             for res in result:
-                worksheet.write(row, 0, res['course_id'])
+                worksheet.write(row, 0, res['course_name'])
                 worksheet.write(row, 1, res['grade'])
                 worksheet.write(row, 2, res['marks'])
-                worksheet.write(row, 3, res['result_date'])
+                # worksheet.write(row, 3, res['result_date'])
+                worksheet.write(row, 3, res['result_date'].strftime('%d-%m-%Y'))
                 row += 1
 
             workbook.close()
@@ -72,9 +81,12 @@ class StudentExcelReportWizard(models.TransientModel):
         if self.student_id:
             student = self.student_id
             sql = f"""
-            SELECT * FROM school_management_student as student
+            SELECT course.name as course_name, result.grade as grade,
+                   result.marks as marks, result.result_date as result_date
+            FROM school_management_student as student
             INNER JOIN school_management_result as result
-            ON student.id = result.student_id 
+            ON student.id = result.student_id
+            INNER JOIN school_management_course as course ON result.course_id = course.id
             WHERE student.id = {student.id}"""
 
             self.env.cr.execute(sql)
