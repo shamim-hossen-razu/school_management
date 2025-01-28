@@ -23,6 +23,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/record_rules.xml',
         'data/school_management.student.csv',
         'data/student_data.xml',
         'data/school_management.parent.csv',
